@@ -1,20 +1,42 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 import {
   Container,
   ExperienceContent,
   StyledExperienceSection,
   TabPanelContainer,
   TabsContainer,
-} from "./ExperienceElements";
-import { Tab, TabPanel, Tabs } from "./Tabs";
-import { workData } from "../../data/wrokData";
+} from "./ExperienceElements"
+import { Tab, TabPanel, Tabs } from "./Tabs"
+import { useStaticQuery, graphql } from "gatsby"
 
 const Experience = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const data = useStaticQuery(graphql`
+    query JobsQuery {
+      allMarkdownRemark(
+        sort: { fields: frontmatter___date, order: DESC }
+        filter: { fileAbsolutePath: { regex: "/jobs/" } }
+      ) {
+        nodes {
+          frontmatter {
+            company
+            location
+            range
+            title
+            url
+          }
+          html
+        }
+      }
+    }
+  `)
+
+  const jobsData = data.allMarkdownRemark.nodes
+
+  const [activeTab, setActiveTab] = useState(0)
 
   const handleChange = (e, value) => {
-    setActiveTab(value);
-  };
+    setActiveTab(value)
+  }
 
   return (
     <StyledExperienceSection id="experience">
@@ -24,20 +46,23 @@ const Experience = () => {
           <Container>
             <TabsContainer>
               <Tabs selectedTab={activeTab} onChange={handleChange}>
-                {workData &&
-                  workData.map((data, i) => (
-                    <Tab
-                      key={data.company + "Tab"}
-                      lable={data.company}
-                      value={i}
-                    ></Tab>
-                  ))}
+                {jobsData &&
+                  jobsData.map((data, i) => {
+                    const company = data.frontmatter.company
+                    return (
+                      <Tab
+                        key={company + "Tab"}
+                        lable={company}
+                        value={i}
+                      ></Tab>
+                    )
+                  })}
               </Tabs>
             </TabsContainer>
             <TabPanelContainer>
-              {workData &&
-                workData.map((data, i) => {
-                  const { title, url, company, range, description } = data;
+              {jobsData &&
+                jobsData.map((data, i) => {
+                  const { title, url, company, range } = data.frontmatter
                   return (
                     <TabPanel
                       key={company + "TabPanel"}
@@ -59,19 +84,20 @@ const Experience = () => {
                         </span>
                       </h3>
                       <p className="expTime">{range}</p>
-                      <ul>
-                        {description &&
-                          description.map((desc, j) => <li key={j}>{desc}</li>)}
-                      </ul>
+
+                      {/* job description */}
+                      <div
+                        dangerouslySetInnerHTML={{ __html: data.html }}
+                      ></div>
                     </TabPanel>
-                  );
+                  )
                 })}
             </TabPanelContainer>
           </Container>
         </ExperienceContent>
       </div>
     </StyledExperienceSection>
-  );
-};
+  )
+}
 
-export default Experience;
+export default Experience

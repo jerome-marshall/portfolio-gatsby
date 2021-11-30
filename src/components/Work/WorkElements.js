@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { landScapeMediaQueries } from "../../GlobalStyles";
+import styled from "styled-components"
+import { landScapeMediaQueries } from "../../GlobalStyles"
 
 export const StyledWorkSection = styled.section`
   display: flex;
@@ -17,7 +17,7 @@ export const StyledWorkSection = styled.section`
     display: block;
   }
   /* ${landScapeMediaQueries} */
-`;
+`
 
 export const WorkContent = styled.div`
   z-index: 3;
@@ -56,7 +56,7 @@ export const WorkContent = styled.div`
       /* grid-auto-rows: minmax(300px, auto); */
     }
   }
-`;
+`
 
 export const ProjectLI = styled.li`
   /* border: 3px solid white; */
@@ -120,10 +120,12 @@ export const ProjectLI = styled.li`
       transition: var(--transition);
     }
 
-    & p.description {
-      background-color: var(--background-dark-highlight);
-      color: var(--grey-300);
-      margin-bottom: 30px;
+    & div.description {
+      & > p {
+        background-color: var(--background-dark-highlight);
+        color: var(--grey-300);
+        margin-bottom: 30px;
+      }
     }
   }
 
@@ -179,4 +181,4 @@ export const ProjectLI = styled.li`
       color: #0088ff;
     }
   }
-`;
+`
