@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Link as LinkS } from "react-scroll";
-import { FaTimes } from "react-icons/fa";
+import styled from "styled-components"
+import { Link as LinkS } from "react-scroll"
+import { FaTimes } from "react-icons/fa"
 
 export const SidebarContainer = styled.aside`
   position: fixed;
@@ -15,11 +15,11 @@ export const SidebarContainer = styled.aside`
   transition: 0.3s ease-in-out;
   opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
   left: ${({ isOpen }) => (isOpen ? "0" : "100%")};
-`;
+`
 
 export const CloseIcon = styled(FaTimes)`
   color: var(--white);
-`;
+`
 export const Icon = styled.div`
   position: absolute;
   top: 1.2rem;
@@ -28,10 +28,10 @@ export const Icon = styled.div`
   font-size: 2rem;
   cursor: pointer;
   outline: none;
-`;
+`
 export const SidebarWrapper = styled.div`
   color: var(--white);
-`;
+`
 export const SidebarMenu = styled.ul`
   display: grid;
   grid-template-columns: 1fr;
@@ -41,7 +41,7 @@ export const SidebarMenu = styled.ul`
   @media screen and (max-width: 480px) {
     grid-template-rows: repeat(6, 60px);
   }
-`;
+`
 export const SidebarLink = styled(LinkS)`
   display: flex;
   align-items: center;
@@ -58,11 +58,11 @@ export const SidebarLink = styled(LinkS)`
     color: var(--white);
     transition: 0.2s ease-in-out;
   }
-`;
+`
 export const SideBtnWrap = styled.div`
   display: flex;
   justify-content: center;
-`;
+`
 export const SidebarRoute = styled.a`
   border-radius: 50px;
   background: var(--white);
@@ -81,4 +81,4 @@ export const SidebarRoute = styled.a`
     background: #fff;
     color: #010606;
   }
-`;
+`

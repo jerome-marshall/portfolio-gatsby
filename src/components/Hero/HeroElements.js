@@ -1,6 +1,6 @@
-import { Link } from "react-scroll";
-import styled from "styled-components";
-import { landScapeMediaQueries } from "../../GlobalStyles";
+import { Link } from "react-scroll"
+import styled from "styled-components"
+import { landScapeMediaQueries } from "../../GlobalStyles"
 
 export const HeroContainer = styled.div`
   background: var(--background-dark);
@@ -13,7 +13,7 @@ export const HeroContainer = styled.div`
   z-index: 1;
 
   ${landScapeMediaQueries}
-`;
+`
 
 export const HeroContent = styled.div`
   z-index: 3;
@@ -73,7 +73,7 @@ export const HeroContent = styled.div`
       font-size: var(--fz-md);
     }
   }
-`;
+`
 
 export const Button = styled(Link)`
   margin-top: 3rem;
@@ -94,4 +94,4 @@ export const Button = styled(Link)`
   @media screen and (max-width: 480px) {
     padding: 1rem 1.5rem;
   }
-`;
+`

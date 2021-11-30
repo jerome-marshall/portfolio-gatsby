@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Link } from "react-scroll";
+import styled from "styled-components"
+import { Link } from "react-scroll"
 
 export const Nav = styled.nav`
   background: var(--background-dark);
@@ -16,7 +16,7 @@ export const Nav = styled.nav`
   @media screen and (max-width: 960px) {
     transition: 0ms.8s all ease;
   }
-`;
+`
 
 export const NavbarContainer = styled.div`
   display: flex;
@@ -24,9 +24,10 @@ export const NavbarContainer = styled.div`
   height: var(--nav-height);
   z-index: 1;
   width: 100%;
-  padding: 24px 24px 0 24px;
+  margin-top: 20px;
+  padding: 0px 20px;
   max-width: 100%;
-`;
+`
 
 export const NavLogo = styled(Link)`
   color: var(--white);
@@ -38,22 +39,19 @@ export const NavLogo = styled(Link)`
   /* margin-left: 24px; */
   font-weight: bold;
   text-decoration: none;
-`;
+`
 
 export const MobileIcon = styled.div`
   display: none;
 
   @media screen and (max-width: 768px) {
-    display: block;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    /* transform: translate(-100%, 60%); */
-    font-size: 1.8rem;
+    display: flex;
+    align-self: center;
+    font-size: calc(var(--fz-xxl) + 3px);
     cursor: pointer;
     color: var(--white);
   }
-`;
+`
 
 export const NavMenu = styled.ul`
   display: flex;
@@ -64,11 +62,11 @@ export const NavMenu = styled.ul`
   @media screen and (max-width: 768px) {
     display: none;
   }
-`;
+`
 
 export const NavItem = styled.li`
   height: var(--nav-height);
-`;
+`
 
 export const NavLinks = styled(Link)`
   color: var(--white);
@@ -84,7 +82,7 @@ export const NavLinks = styled(Link)`
     background: #111;
     border-bottom: 3px solid #eee;
   }
-`;
+`
 
 export const NavBtn = styled.nav`
   display: flex;
@@ -94,7 +92,7 @@ export const NavBtn = styled.nav`
   @media screen and (max-width: 768px) {
     display: none;
   }
-`;
+`
 
 export const NavBtnLink = styled.a`
   border-radius: var(--border-radius);
@@ -113,4 +111,4 @@ export const NavBtnLink = styled.a`
     background: var(--white);
     color: #010606;
   }
-`;
+`
