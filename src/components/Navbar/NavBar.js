@@ -42,7 +42,7 @@ const NavBar = ({ toggle }) => {
             </NavItem>
             <NavItem>
               <NavLinks to="contact" smooth={true} duration={1000}>
-                Contract
+                Contact
               </NavLinks>
             </NavItem>
             <NavBtn>
