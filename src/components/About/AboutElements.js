@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { landScapeMediaQueries } from "../../GlobalStyles";
+import styled from "styled-components"
+import { landScapeMediaQueries } from "../../GlobalStyles"
 
 export const StyledAboutSection = styled.section`
   max-width: 100%;
@@ -16,7 +16,7 @@ export const StyledAboutSection = styled.section`
   }
 
   ${landScapeMediaQueries}
-`;
+`
 
 export const AboutContent = styled.div`
   position: relative;
@@ -37,7 +37,7 @@ export const AboutContent = styled.div`
   @media (max-width: 1000px) {
     display: block;
   }
-`;
+`
 
 export const Container = styled.div`
   /* padding-top: var(--nav-height); */
@@ -52,7 +52,7 @@ export const Container = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
-`;
+`
 
 export const AboutSummary = styled.div`
   /* background-color: coral; */
@@ -73,7 +73,7 @@ export const AboutSummary = styled.div`
 
   & ul.skills-list {
     display: grid;
-    grid-template-columns: repeat(3, minmax(140px, 200px));
+    grid-template-columns: repeat(2, minmax(140px, 200px));
     grid-gap: 0 10px;
     padding: 0;
     margin-top: 20px;
@@ -111,7 +111,7 @@ export const AboutSummary = styled.div`
       } */
     }
   }
-`;
+`
 
 export const StyledPic = styled.div`
   /* background-color: aquamarine; */
@@ -175,4 +175,4 @@ export const StyledPic = styled.div`
     bottom: 10px;
     right: 10px;
   } */
-`;
+`

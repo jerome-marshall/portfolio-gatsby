@@ -7,20 +7,9 @@ import {
   Container,
 } from "./AboutElements"
 import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage, getImage, Img } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const AboutSection = () => {
-  const skills = [
-    "JavaScript (ES6+)",
-    "Java",
-    "Dart",
-    "React",
-    "MongoDB",
-    "Flutter",
-    "Node.js",
-    "Firebase",
-  ]
-
   const data = useStaticQuery(graphql`
     query MyImgQuery {
       img: file(relativePath: { eq: "me.jpg" }) {
@@ -28,11 +17,19 @@ const AboutSection = () => {
           gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
         }
       }
+      skillSet: file(relativePath: { eq: "SkillSet.md" }) {
+        childMarkdownRemark {
+          frontmatter {
+            skillSet
+          }
+        }
+      }
     }
   `)
 
   const image = data.img.childImageSharp.gatsbyImageData
-  console.log(image)
+
+  const skillSet = data.skillSet.childMarkdownRemark.frontmatter.skillSet
 
   return (
     <StyledAboutSection id="about">
@@ -62,8 +59,8 @@ const AboutSection = () => {
                 Here are a few technologies I've been working with recently:
               </p>
               <ul className="skills-list">
-                {skills &&
-                  skills.map((skill, i) => (
+                {skillSet &&
+                  skillSet.map((skill, i) => (
                     <li key={i}>
                       <span>{skill}</span>
                     </li>
