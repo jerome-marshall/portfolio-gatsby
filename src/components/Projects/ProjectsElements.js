@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { landScapeMediaQueries } from "../../GlobalStyles"
 
-export const StyledWorkSection = styled.section`
+export const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
   max-width: 100%;
@@ -19,7 +19,7 @@ export const StyledWorkSection = styled.section`
   /* ${landScapeMediaQueries} */
 `
 
-export const WorkContent = styled.div`
+export const ProjectsContent = styled.div`
   z-index: 3;
   max-width: var(--max-width);
   position: relative;

@@ -1,12 +1,13 @@
-import React from "react";
+import React from "react"
 import {
   StyledAboutSection,
   AboutContent,
   AboutSummary,
   StyledPic,
   Container,
-} from "./AboutElements";
-import MyPic from "../../images/me.jpg";
+} from "./AboutElements"
+import { graphql, useStaticQuery } from "gatsby"
+import { GatsbyImage, getImage, Img } from "gatsby-plugin-image"
 
 const AboutSection = () => {
   const skills = [
@@ -18,7 +19,20 @@ const AboutSection = () => {
     "Flutter",
     "Node.js",
     "Firebase",
-  ];
+  ]
+
+  const data = useStaticQuery(graphql`
+    query MyImgQuery {
+      img: file(relativePath: { eq: "me.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+        }
+      }
+    }
+  `)
+
+  const image = data.img.childImageSharp.gatsbyImageData
+  console.log(image)
 
   return (
     <StyledAboutSection id="about">
@@ -59,13 +73,18 @@ const AboutSection = () => {
           </AboutSummary>
           <StyledPic>
             <div className="wrapper">
-              <img className="img" src={MyPic} alt="My Pic" width={350} />
+              <GatsbyImage
+                className="img"
+                image={image}
+                alt="Jerome Marshall"
+              />
+              {/* <img className="img" src={MyPic} alt="My Pic" width={350} /> */}
             </div>
           </StyledPic>
         </Container>
       </AboutContent>
     </StyledAboutSection>
-  );
-};
+  )
+}
 
-export default AboutSection;
+export default AboutSection

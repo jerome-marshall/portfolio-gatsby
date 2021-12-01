@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { landScapeMediaQueries } from "../../GlobalStyles";
+import styled, { css } from "styled-components"
+import { landScapeMediaQueries } from "../../GlobalStyles"
 
 export const StyledExperienceSection = styled.section`
   max-width: 100%;
@@ -16,7 +16,7 @@ export const StyledExperienceSection = styled.section`
   }
 
   ${landScapeMediaQueries}
-`;
+`
 
 export const ExperienceContent = styled.div`
   z-index: 3;
@@ -43,7 +43,7 @@ export const ExperienceContent = styled.div`
     display: block;
     top: 80px;
   }
-`;
+`
 
 export const Container = styled.div`
   /* background-color: white; */
@@ -56,12 +56,12 @@ export const Container = styled.div`
     padding-top: 5px;
     display: block;
   }
-`;
+`
 
 export const TabsContainer = styled.div`
   display: flex;
   /* padding: 2px; */
-`;
+`
 
 export const TabPanelContainer = styled.div`
   margin-left: 30px;
@@ -131,14 +131,14 @@ export const TabPanelContainer = styled.div`
   @media (max-width: 820px) {
     width: 100%;
   }
-`;
+`
 
 export const TabHeaderContainer = styled.div`
   display: flex;
   justify-content: center;
   /* flex-direction: column; */
   width: 100%;
-`;
+`
 
 export const StylizedTab = styled.button`
   color: var(--grey-700);
@@ -151,10 +151,10 @@ export const StylizedTab = styled.button`
   border: none;
   border-left: 3px solid var(--grey-900);
   /* border-radius: var(--border-radius); */
-  cursor: ${(p) => (p.disabled ? "default" : "pointer")};
+  cursor: ${p => (p.disabled ? "default" : "pointer")};
   transition: all 0.3s ease-in-out;
 
-  /* ${(p) =>
+  /* ${p =>
     p.active
       ? css`
           color: var(--white);
@@ -165,7 +165,7 @@ export const StylizedTab = styled.button`
         `} */
 
   //color
-  ${(p) =>
+  ${p =>
     p.active &&
     css`
       color: var(--white);
@@ -181,7 +181,7 @@ export const StylizedTab = styled.button`
     border: none;
     border-bottom: 3px solid var(--grey-900);
 
-    ${(p) =>
+    ${p =>
       p.active &&
       css`
         border-bottom: 3px solid white;
@@ -191,12 +191,12 @@ export const StylizedTab = styled.button`
       background-color: transparent;
     }
   }
-`;
+`
 
 export const StyledTabPanel = styled.div`
   background-color: tomato;
   position: relative;
-  display: ${(p) => (p.active ? "flex" : "none")};
+  display: ${p => (p.active ? "flex" : "none")};
   background: var(--background-dark);
   flex-direction: column;
   justify-content: flex-start;
@@ -204,9 +204,9 @@ export const StyledTabPanel = styled.div`
   @media (max-width: 480px) {
     /* width: 350px; */
   }
-`;
+`
 
-export const TabPanelContent = styled.div``;
+export const TabPanelContent = styled.div``
 
 export const TabsHolder = styled.div`
   display: flex;
@@ -215,4 +215,4 @@ export const TabsHolder = styled.div`
   @media (max-width: 480px) {
     flex-direction: row;
   }
-`;
+`

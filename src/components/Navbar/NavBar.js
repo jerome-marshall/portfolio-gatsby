@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   Nav,
   NavbarContainer,
@@ -9,9 +9,9 @@ import {
   MobileIcon,
   NavBtn,
   NavBtnLink,
-} from "./NavBarElements";
-import { FaBars } from "react-icons/fa";
-import { animateScroll as scroll } from "react-scroll";
+} from "./NavBarElements"
+import { FaBars } from "react-icons/fa"
+import { animateScroll as scroll } from "react-scroll"
 
 const NavBar = ({ toggle }) => {
   return (
@@ -36,8 +36,8 @@ const NavBar = ({ toggle }) => {
               </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="work" smooth={true} duration={1000}>
-                Work
+              <NavLinks to="projects" smooth={true} duration={1000}>
+                Projects
               </NavLinks>
             </NavItem>
             <NavItem>
@@ -57,7 +57,7 @@ const NavBar = ({ toggle }) => {
         </NavbarContainer>
       </Nav>
     </>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

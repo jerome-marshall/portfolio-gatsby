@@ -1,11 +1,15 @@
 import React from "react"
-import { ProjectLI, StyledWorkSection, WorkContent } from "./WorkElements"
+import {
+  ProjectLI,
+  StyledProjectsSection,
+  ProjectsContent,
+} from "./ProjectsElements"
 import { IconFolder } from "../icons/folder"
 import { IconGitHub } from "../icons/github"
 import { IconExternal } from "../icons/external"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Work = () => {
+const Projects = () => {
   const data = useStaticQuery(graphql`
     query ProjectsQuery {
       allMarkdownRemark(
@@ -28,8 +32,8 @@ const Work = () => {
   const projectData = data.allMarkdownRemark.nodes
 
   return (
-    <StyledWorkSection id="work">
-      <WorkContent>
+    <StyledProjectsSection id="projects">
+      <ProjectsContent>
         <h2>Some things I've built</h2>
         <ul className="project-grid">
           {projectData &&
@@ -65,9 +69,9 @@ const Work = () => {
               )
             })}
         </ul>
-      </WorkContent>
-    </StyledWorkSection>
+      </ProjectsContent>
+    </StyledProjectsSection>
   )
 }
 
-export default Work
+export default Projects
