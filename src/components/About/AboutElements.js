@@ -139,7 +139,7 @@ export const StyledPic = styled.div`
       /* max-width: 300px; */
       /* filter: none; */
       /* mix-blend-mode: normal; */
-      max-width: 100%;
+      max-width: 280px;
       max-height: 100%;
       border-radius: var(--border-radius);
       opacity: 0.4;
@@ -148,7 +148,7 @@ export const StyledPic = styled.div`
       transition: all 500ms ease-in-out;
 
       :hover {
-        max-width: 320px;
+        max-width: 300px;
         opacity: 1;
       }
 

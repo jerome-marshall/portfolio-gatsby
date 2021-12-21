@@ -1,5 +1,5 @@
-import React from "react";
-import { HeroContainer, HeroContent, Button } from "./HeroElements";
+import React from "react"
+import { HeroContainer, HeroContent, Button } from "./HeroElements"
 
 const Hero = () => {
   return (
@@ -11,7 +11,7 @@ const Hero = () => {
         <p className="summary">
           I'm a software engineer, building (and occasionally designing)
           user-friendly digital experiences. Currently, I'm looking for an
-          oppurtunity where I can make the best use of my technical skills for
+          oppurtunity where I can make the best use of my development skills for
           the better.
         </p>
 
@@ -20,7 +20,7 @@ const Hero = () => {
         </Button>
       </HeroContent>
     </HeroContainer>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

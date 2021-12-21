@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle, css } from "styled-components"
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -64,8 +64,8 @@ const GlobalStyles = createGlobalStyle`
     --transition: all 0.3s ease-in-out;
     --nav-height: 60px
   } */
-`;
-export default GlobalStyles;
+`
+export default GlobalStyles
 
 export const landScapeMediaQueries = css`
   @media screen and (max-height: 600px) {
@@ -78,4 +78,4 @@ export const landScapeMediaQueries = css`
   @media screen and (max-height: 360px) {
     height: 180vh;
   }
-`;
+`

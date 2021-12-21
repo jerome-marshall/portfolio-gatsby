@@ -4,9 +4,9 @@ import {
   StyledProjectsSection,
   ProjectsContent,
 } from "./ProjectsElements"
-import { IconFolder } from "../icons/folder"
-import { IconGitHub } from "../icons/github"
-import { IconExternal } from "../icons/external"
+import { FiGithub as IconGitHub } from "react-icons/fi"
+import { FiExternalLink as IconExternal } from "react-icons/fi"
+import { FiFolder as IconFolder } from "react-icons/fi"
 import { useStaticQuery, graphql } from "gatsby"
 
 const Projects = () => {
