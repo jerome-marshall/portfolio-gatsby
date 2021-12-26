@@ -18,7 +18,7 @@ export const HeroContainer = styled.div`
 export const HeroContent = styled.div`
   z-index: 3;
   max-width: var(--max-width);
-  position: absolute;
+  position: relative;
   padding: 8px 24px;
   display: flex;
   flex-direction: column;

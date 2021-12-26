@@ -8,6 +8,7 @@ import {
 } from "./ExperienceElements"
 import { Tab, TabPanel, Tabs } from "./Tabs"
 import { useStaticQuery, graphql } from "gatsby"
+import FadeHOC from "../FadeHOC/FadeHOC"
 
 const Experience = () => {
   const data = useStaticQuery(graphql`
@@ -40,62 +41,64 @@ const Experience = () => {
 
   return (
     <StyledExperienceSection id="experience">
-      <div className="container">
-        <ExperienceContent>
-          <h2 className="nav-heading">Where I've worked</h2>
-          <Container>
-            <TabsContainer>
-              <Tabs selectedTab={activeTab} onChange={handleChange}>
+      <FadeHOC>
+        <div className="container">
+          <ExperienceContent>
+            <h2 className="nav-heading">Where I've worked</h2>
+            <Container>
+              <TabsContainer>
+                <Tabs selectedTab={activeTab} onChange={handleChange}>
+                  {jobsData &&
+                    jobsData.map((data, i) => {
+                      const company = data.frontmatter.company
+                      return (
+                        <Tab
+                          key={company + "Tab"}
+                          lable={company}
+                          value={i}
+                        ></Tab>
+                      )
+                    })}
+                </Tabs>
+              </TabsContainer>
+              <TabPanelContainer>
                 {jobsData &&
                   jobsData.map((data, i) => {
-                    const company = data.frontmatter.company
+                    const { title, url, company, range } = data.frontmatter
                     return (
-                      <Tab
-                        key={company + "Tab"}
-                        lable={company}
-                        value={i}
-                      ></Tab>
+                      <TabPanel
+                        key={company + "TabPanel"}
+                        value={activeTab}
+                        selectedIndex={i}
+                      >
+                        <h3>
+                          <span className="title">{title}</span>
+                          <span className="company">
+                            &nbsp;@&nbsp;
+                            <a
+                              href={url}
+                              className="url"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {company}
+                            </a>
+                          </span>
+                        </h3>
+                        <p className="expTime">{range}</p>
+
+                        {/* job description */}
+                        <div
+                          dangerouslySetInnerHTML={{ __html: data.html }}
+                        ></div>
+                      </TabPanel>
                     )
                   })}
-              </Tabs>
-            </TabsContainer>
-            <TabPanelContainer>
-              {jobsData &&
-                jobsData.map((data, i) => {
-                  const { title, url, company, range } = data.frontmatter
-                  return (
-                    <TabPanel
-                      key={company + "TabPanel"}
-                      value={activeTab}
-                      selectedIndex={i}
-                    >
-                      <h3>
-                        <span className="title">{title}</span>
-                        <span className="company">
-                          &nbsp;@&nbsp;
-                          <a
-                            href={url}
-                            className="url"
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            {company}
-                          </a>
-                        </span>
-                      </h3>
-                      <p className="expTime">{range}</p>
-
-                      {/* job description */}
-                      <div
-                        dangerouslySetInnerHTML={{ __html: data.html }}
-                      ></div>
-                    </TabPanel>
-                  )
-                })}
-            </TabPanelContainer>
-          </Container>
-        </ExperienceContent>
-      </div>
+              </TabPanelContainer>
+            </Container>
+          </ExperienceContent>
+        </div>
+      </FadeHOC>
     </StyledExperienceSection>
   )
 }

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { landScapeMediaQueries } from "../../GlobalStyles";
+import styled from "styled-components"
+import { landScapeMediaQueries } from "../../GlobalStyles"
 
 export const ContactContainer = styled.div`
   background: var(--background-dark);
@@ -12,12 +12,11 @@ export const ContactContainer = styled.div`
   z-index: 1;
 
   ${landScapeMediaQueries}
-`;
+`
 
 export const ContactContent = styled.div`
   z-index: 3;
   max-width: 600px;
-  position: absolute;
   padding: 8px 24px;
   display: flex;
   flex-direction: column;
@@ -59,7 +58,7 @@ export const ContactContent = styled.div`
       font-size: var(--fz-md);
     }
   }
-`;
+`
 
 export const StyledA = styled.a`
   margin: 0 auto;
@@ -83,4 +82,4 @@ export const StyledA = styled.a`
   &:visited {
     text-decoration: none;
   }
-`;
+`
