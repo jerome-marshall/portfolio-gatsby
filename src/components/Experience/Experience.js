@@ -9,29 +9,27 @@ import {
 import { Tab, TabPanel, Tabs } from "./Tabs"
 import { useStaticQuery, graphql } from "gatsby"
 import FadeHOC from "../FadeHOC/FadeHOC"
+import ReactMarkdown from "react-markdown"
 
 const Experience = () => {
   const data = useStaticQuery(graphql`
-    query JobsQuery {
-      allMarkdownRemark(
-        sort: { fields: frontmatter___date, order: DESC }
-        filter: { fileAbsolutePath: { regex: "/jobs/" } }
-      ) {
-        nodes {
-          frontmatter {
-            company
-            location
-            range
-            title
-            url
-          }
-          html
+    query GetExperiencePage {
+      strapiExperiencePage {
+        workDetails {
+          companyName
+          designation
+          timePeriod
+          url
+          workDone
+          doj(formatString: "YYMMDD")
         }
       }
     }
   `)
 
-  const jobsData = data.allMarkdownRemark.nodes
+  const jobsData = data.strapiExperiencePage.workDetails
+
+  console.log(jobsData)
 
   const [activeTab, setActiveTab] = useState(0)
 
@@ -50,7 +48,7 @@ const Experience = () => {
                 <Tabs selectedTab={activeTab} onChange={handleChange}>
                   {jobsData &&
                     jobsData.map((data, i) => {
-                      const company = data.frontmatter.company
+                      const company = data.companyName
                       return (
                         <Tab
                           key={company + "Tab"}
@@ -64,15 +62,21 @@ const Experience = () => {
               <TabPanelContainer>
                 {jobsData &&
                   jobsData.map((data, i) => {
-                    const { title, url, company, range } = data.frontmatter
+                    const {
+                      designation,
+                      url,
+                      companyName,
+                      timePeriod,
+                      workDone,
+                    } = data
                     return (
                       <TabPanel
-                        key={company + "TabPanel"}
+                        key={companyName + "TabPanel"}
                         value={activeTab}
                         selectedIndex={i}
                       >
                         <h3>
-                          <span className="title">{title}</span>
+                          <span className="title">{designation}</span>
                           <span className="company">
                             &nbsp;@&nbsp;
                             <a
@@ -81,16 +85,16 @@ const Experience = () => {
                               target="_blank"
                               rel="noreferrer"
                             >
-                              {company}
+                              {companyName}
                             </a>
                           </span>
                         </h3>
-                        <p className="expTime">{range}</p>
+                        <p className="expTime">{timePeriod}</p>
 
                         {/* job description */}
-                        <div
-                          dangerouslySetInnerHTML={{ __html: data.html }}
-                        ></div>
+                        <div>
+                          <ReactMarkdown>{workDone}</ReactMarkdown>
+                        </div>
                       </TabPanel>
                     )
                   })}

@@ -12,17 +12,18 @@ import FadeHOC from "../FadeHOC/FadeHOC"
 
 const AboutSection = () => {
   const data = useStaticQuery(graphql`
-    query MyImgQuery {
+    query GetAboutPage {
       img: file(relativePath: { eq: "me.jpg" }) {
         childImageSharp {
           gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
         }
       }
-      skillSet: file(relativePath: { eq: "SkillSet.md" }) {
-        childMarkdownRemark {
-          frontmatter {
-            skillSet
-          }
+
+      strapiAboutPage {
+        descriptionPast
+        descriptionPresent
+        skillSet {
+          name
         }
       }
     }
@@ -30,7 +31,15 @@ const AboutSection = () => {
 
   const image = data.img.childImageSharp.gatsbyImageData
 
-  const skillSet = data.skillSet.childMarkdownRemark.frontmatter.skillSet
+  const skills = data.strapiAboutPage.skillSet
+  const skillSet = []
+
+  for (const key in skills) {
+    skillSet.push(skills[key].name)
+  }
+
+  const descriptionPast = data.strapiAboutPage.descriptionPast
+  const descriptionPresent = data.strapiAboutPage.descriptionPresent
 
   return (
     <StyledAboutSection id="about">
@@ -40,22 +49,9 @@ const AboutSection = () => {
           <Container>
             <AboutSummary>
               <div className="summary">
-                <p>
-                  Hello! My name is Jerome and I enjoy creating things that live
-                  on the internet. My interest in Android and Web Development
-                  started back in 2017 when I decided to create a meme app —
-                  turns out a meme app taught me a lot about development and
-                  digital experiences.
-                </p>
+                <p>{descriptionPast}</p>
                 <br />
-                <p>
-                  Fast-forward to today, I've had the privilege to train myself
-                  in various bleeding-edge technologies to create amazing
-                  digital experiences. Currently, I'm working at Cognizant as a
-                  Program Analyst. But as development has become my passion, I'm
-                  obliged to get smarter every day. So when the opportunity
-                  arises, I could make the best use of my skills.
-                </p>
+                <p>{descriptionPresent}</p>
                 <br />
                 <p>
                   Here are a few technologies I've been working with recently:

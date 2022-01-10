@@ -21,6 +21,15 @@ module.exports = {
         path: `${__dirname}/src/data/`,
       },
     },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `http://localhost:1337`,
+        // queryLimit: 1000, // Defaults to 100
+        singleTypes: [`hero-page`, `about-page`, `experience-page`],
+        // collectionTypes: [`tech-stacks`, `tech-stack`],
+      },
+    },
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,

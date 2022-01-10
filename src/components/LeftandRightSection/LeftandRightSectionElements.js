@@ -29,7 +29,6 @@ export const SectionContainer = styled.div`
       align-items: center;
       border-radius: 50px;
 
-      transition: width 1s ease-in-out;
       overflow: hidden;
 
       :hover {
@@ -38,6 +37,7 @@ export const SectionContainer = styled.div`
 
       :hover span {
         display: inline;
+        transition: all 1s linear;
       }
 
       :hover svg {
