@@ -51,7 +51,7 @@ export const IconCard = styled.a`
   border-radius: 50px;
   width: 44px;
   transition: var(--transition-card);
-
+  text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
@@ -75,6 +75,7 @@ export const IconCard = styled.a`
   & span {
     background: transparent;
     color: white;
+
     /* display: none; */
     font-size: 14px;
     z-index: 99;

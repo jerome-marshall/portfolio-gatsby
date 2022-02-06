@@ -52,7 +52,7 @@ const LeftandRightSection = () => {
 
           <IconCard left width="115" href={socialsData[1].href} target="_blank">
             <IconLinkedIn />
-            <span>Link{socialsData[1].displayName}edIn</span>
+            <span>{socialsData[1].displayName}</span>
           </IconCard>
 
           <IconCard left width="157" href={socialsData[2].href} target="_blank">
