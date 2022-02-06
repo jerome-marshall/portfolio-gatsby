@@ -1,0 +1,10 @@
+/* .container {
+  height: 100vh;
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+}
+
+section {
+  height: 100vh;
+  scroll-snap-align: start;
+} */

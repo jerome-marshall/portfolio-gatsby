@@ -32,7 +32,7 @@ module.exports = {
           `experience-page`,
           `projects-page`,
         ],
-        // collectionTypes: [`tech-stacks`, `tech-stack`],
+        collectionTypes: [`socials`, `social`],
       },
     },
     `gatsby-transformer-remark`,

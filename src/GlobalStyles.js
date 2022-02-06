@@ -4,6 +4,7 @@ const GlobalStyles = createGlobalStyle`
   html {
     --background-dark: #0c0c0c;
     --background-dark-highlight: #1f1f1f;
+    --color-accent: #3a32ff;
     --white: #eee;
     --grey-100: #ddd;
     --grey-300: #bbb;
@@ -30,6 +31,7 @@ const GlobalStyles = createGlobalStyle`
     --padding-lg: 32px;
     --line-height-sm: 1.6;
     --transition: all 0.3s ease-in-out;
+    --transition-card: all 0.5s ease-in-out;
     --nav-height: 60px
   }
 

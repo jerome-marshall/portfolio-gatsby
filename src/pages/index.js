@@ -7,24 +7,24 @@ import Projects from "../components/Projects/Projects"
 import Contact from "../components/Contact/Contact"
 
 export default function Home() {
-  useEffect(() => {
-    window.addEventListener("scroll", e => {
-      // console.log(e.target)
-    })
-  }, [])
-
   return (
-    <Layout
-      onWheel={() => {
-        console.log("Scrolling...")
-      }}
-    >
-      <div className="home">
-        <Hero />
-        <AboutSection />
-        <Experience />
-        <Projects />
-        <Contact />
+    <Layout>
+      <div className="scroll-container">
+        <section>
+          <Hero />
+        </section>
+        <section>
+          <AboutSection />
+        </section>
+        <section>
+          <Experience />
+        </section>
+        <section>
+          <Projects />
+        </section>
+        <section>
+          <Contact />
+        </section>
       </div>
     </Layout>
   )

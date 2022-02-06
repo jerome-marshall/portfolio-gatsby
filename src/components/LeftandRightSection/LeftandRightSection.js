@@ -1,12 +1,16 @@
 import React, { useEffect } from "react"
 import Aos from "aos"
 import "aos/dist/aos.css"
-import { SectionContainer } from "../LeftandRightSection/LeftandRightSectionElements"
+import {
+  SectionContainer,
+  IconCard,
+} from "../LeftandRightSection/LeftandRightSectionElements"
 import { FiGithub as IconGitHub } from "react-icons/fi"
 import { FiLinkedin as IconLinkedIn } from "react-icons/fi"
 import { FiPhone as IconPhone } from "react-icons/fi"
 import { BsStackOverflow as IconStackoverflow } from "react-icons/bs"
 import { FiMail as IconMail } from "react-icons/fi"
+import { useStaticQuery, graphql } from "gatsby"
 
 const LeftandRightSection = () => {
   useEffect(() => {
@@ -21,37 +25,62 @@ const LeftandRightSection = () => {
     }
   })
 
+  const data = useStaticQuery(graphql`
+    query GetSocials {
+      allStrapiSocials(sort: { fields: id, order: ASC }) {
+        nodes {
+          href
+          name
+          displayName
+        }
+      }
+    }
+  `)
+
+  const socialsData = data.allStrapiSocials.nodes
+
+  console.log("data", socialsData)
+
   return (
     <>
       <SectionContainer left data-aos="fade-right">
         <div className="cards">
-          <div className="iconCard">
+          <IconCard left width="103" href={socialsData[0].href} target="_blank">
             <IconGitHub />
-            <span>Github</span>
-          </div>
-          <div className="iconCard">
+            <span>{socialsData[0].displayName}</span>
+          </IconCard>
+
+          <IconCard left width="115" href={socialsData[1].href} target="_blank">
             <IconLinkedIn />
-            <span>LinkedIn</span>
-          </div>
-          <div className="iconCard">
+            <span>Link{socialsData[1].displayName}edIn</span>
+          </IconCard>
+
+          <IconCard left width="157" href={socialsData[2].href} target="_blank">
             <IconStackoverflow />
-            <span>Stack Overflow</span>
-          </div>
+            <span>{socialsData[2].displayName}</span>
+          </IconCard>
         </div>
         <div className="bar">
           <p></p>
         </div>
       </SectionContainer>
+
       <SectionContainer right data-aos="fade-left">
         <div className="cards">
-          <div className="iconCard">
-            <span>jeromemarshall0@gmail.com</span>
+          <IconCard
+            right
+            width="253"
+            href={socialsData[3].href}
+            target="_blank"
+          >
             <IconMail />
-          </div>
-          <div className="iconCard">
-            <span>+91 9159115328</span>
+            <span>{socialsData[3].displayName}</span>
+          </IconCard>
+
+          <IconCard right width="163" href={socialsData[4].href}>
             <IconPhone />
-          </div>
+            <span>{socialsData[4].displayName}</span>
+          </IconCard>
         </div>
         <div className="bar">
           <p></p>

@@ -18,44 +18,6 @@ export const SectionContainer = styled.div`
     flex-direction: column;
     align-items: ${props => (props.right && "flex-end") || "flex-start"};
     background: transparent;
-
-    & div.iconCard {
-      display: flex;
-      gap: 10px;
-      padding: 12px;
-      margin-bottom: 20px;
-      background-color: var(--background-dark-highlight);
-      justify-content: ${props => props.right && "flex-end"};
-      align-items: center;
-      border-radius: 50px;
-
-      overflow: hidden;
-
-      :hover {
-        /* padding: 12px 20px; */
-      }
-
-      :hover span {
-        display: inline;
-        transition: all 1s linear;
-      }
-
-      :hover svg {
-        color: blue;
-      }
-
-      & span {
-        color: white;
-        display: none;
-        font-size: 14px;
-      }
-
-      & svg {
-        width: 20px;
-        height: 20px;
-        color: var(--grey-500);
-      }
-    }
   }
 
   & div.bar {
@@ -69,5 +31,58 @@ export const SectionContainer = styled.div`
       height: 150px;
       border-left: 2px solid var(--grey-500);
     }
+  }
+`
+
+export const IconCard = styled.a`
+  display: flex;
+  flex-direction: ${props => (props.right && "row-reverse") || "row"};
+  flex-wrap: row wrap;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 20px;
+  background-color: var(--background-dark-highlight);
+  /* justify-content: ${props => props.right && "flex-end"}; */
+  align-items: center;
+  border-radius: 50px;
+  width: 44px;
+  transition: var(--transition-card);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+
+  :hover {
+    /* padding: 12px 20px; */
+    width: ${props => props.width + "px"};
+  }
+
+  :hover span {
+    display: inline;
+    /* transition: all 1s linear; */
+  }
+
+  :hover svg {
+    color: var(--color-accent);
+    min-width: 22px;
+    min-height: 22px;
+  }
+
+  & span {
+    background: transparent;
+    color: white;
+    /* display: none; */
+    font-size: 14px;
+    z-index: 99;
+    transition: var(--transition-card);
+  }
+
+  & svg {
+    background: transparent;
+    min-width: 20px;
+    min-height: 20px;
+    color: var(--grey-500);
+    z-index: 100;
+    transition: var(--transition-card);
   }
 `
