@@ -39,8 +39,6 @@ const LeftandRightSection = () => {
 
   const socialsData = data.allStrapiSocials.nodes
 
-  console.log("data", socialsData)
-
   return (
     <>
       <SectionContainer left data-aos="fade-right">

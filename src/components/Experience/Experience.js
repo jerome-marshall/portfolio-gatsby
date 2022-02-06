@@ -29,8 +29,6 @@ const Experience = () => {
 
   const jobsData = data.strapiExperiencePage.workDetails
 
-  console.log(jobsData)
-
   const [activeTab, setActiveTab] = useState(0)
 
   const handleChange = (e, value) => {
