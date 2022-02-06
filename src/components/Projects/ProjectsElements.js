@@ -124,7 +124,8 @@ export const ProjectLI = styled.li`
       & > p {
         background-color: var(--background-dark-highlight);
         color: var(--grey-300);
-        margin-bottom: 30px;
+        font-size: var(--fz-md);
+        margin-bottom: 20px;
       }
     }
   }
@@ -145,12 +146,16 @@ export const ProjectLI = styled.li`
 
     color: var(--grey-500);
     font-size: var(--fz-xs);
-    padding: 10px;
+    padding: 7px;
     transition: var(--transition);
 
     display: inline;
     justify-self: end;
     align-self: end;
+    float: right;
+    /* :nth-child(3n + 4) {
+      clear: left;
+    } */
 
     @media (max-width: 1000px) {
       float: right;

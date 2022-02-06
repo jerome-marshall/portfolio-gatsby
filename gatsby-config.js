@@ -26,13 +26,8 @@ module.exports = {
       options: {
         apiURL: `http://localhost:1337`,
         // queryLimit: 1000, // Defaults to 100
-        singleTypes: [
-          `hero-page`,
-          `about-page`,
-          `experience-page`,
-          `projects-page`,
-        ],
-        collectionTypes: [`socials`, `social`],
+        singleTypes: [`hero-page`, `about-page`, `experience-page`],
+        collectionTypes: [`socials`, `projects`],
       },
     },
     `gatsby-transformer-remark`,

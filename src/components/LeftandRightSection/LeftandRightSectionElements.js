@@ -32,6 +32,10 @@ export const SectionContainer = styled.div`
       border-left: 2px solid var(--grey-500);
     }
   }
+
+  @media (max-width: 1300px) {
+    display: none;
+  }
 `
 
 export const IconCard = styled.a`

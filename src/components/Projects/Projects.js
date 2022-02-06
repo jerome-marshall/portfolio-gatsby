@@ -12,25 +12,26 @@ import FadeHOC from "../FadeHOC/FadeHOC"
 
 const Projects = () => {
   const data = useStaticQuery(graphql`
-    query ProjectsQuery {
-      allMarkdownRemark(
-        sort: { fields: frontmatter___date, order: DESC }
-        filter: { fileAbsolutePath: { regex: "/projects/" } }
-      ) {
+    query GetProjects {
+      allStrapiProjects(sort: { fields: date, order: DESC }) {
         nodes {
-          frontmatter {
-            title
-            github
-            external
-            techStack
+          techStack {
+            name
           }
-          html
+          date
+          description
+          external
+          github
+          name
+          personal
+          projectFor
+          showInProjects
         }
       }
     }
   `)
 
-  const projectData = data.allMarkdownRemark.nodes
+  const projectData = data.allStrapiProjects.nodes
 
   return (
     <StyledProjectsSection id="projects">
@@ -40,9 +41,9 @@ const Projects = () => {
           <ul className="project-grid">
             {projectData &&
               projectData.map((data, i) => {
-                const { title, techStack, github, external } = data.frontmatter
+                const { name, techStack, github, external, description } = data
                 return (
-                  <ProjectLI key={title + i}>
+                  <ProjectLI key={name + i}>
                     <div className="leftIcon">
                       <IconFolder />
                     </div>
@@ -55,16 +56,15 @@ const Projects = () => {
                       </a>
                     </div>
                     <div className="content">
-                      <h3 className="title">{title}</h3>
-                      <div
-                        className="description"
-                        dangerouslySetInnerHTML={{ __html: data.html }}
-                      ></div>
+                      <h3 className="title">{name}</h3>
+                      <div className="description">
+                        <p>{description}</p>
+                      </div>
                     </div>
                     <ul>
                       {techStack &&
                         techStack.map((tech, j) => (
-                          <li key={tech + j}>{tech}</li>
+                          <li key={tech.name + j}>{tech.name}</li>
                         ))}
                     </ul>
                   </ProjectLI>
