@@ -55,6 +55,7 @@ export const IconCard = styled.a`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
+  z-index: 100;
 
   :hover {
     /* padding: 12px 20px; */
@@ -87,7 +88,70 @@ export const IconCard = styled.a`
     min-width: 20px;
     min-height: 20px;
     color: var(--grey-500);
-    z-index: 100;
     transition: var(--transition-card);
+  }
+`
+
+export const CreditSectionWrapper = styled.div`
+  display: none;
+  position: relative;
+  background: transparent;
+  color: white;
+  margin-top: -89px;
+  z-index: 1000;
+
+  @media screen and (max-width: 1300px) {
+    display: block;
+  }
+`
+
+export const CreditSectionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  color: white;
+  align-items: center;
+  /* padding: 10px; */
+
+  .credit {
+    & p {
+      font-size: var(--fz-xs);
+      color: var(--grey-500);
+    }
+  }
+
+  .icons {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    gap: 15px;
+    margin-bottom: 15px;
+
+    ${IconCard} {
+      margin-bottom: 0px;
+    }
+
+    :hover span {
+      display: none;
+      /* transition: all 1s linear; */
+    }
+
+    :hover svg {
+      color: var(--grey-500);
+    }
+
+    & span {
+      display: none;
+      /* display: none; */
+    }
+
+    & svg {
+      background: transparent;
+      min-width: 20px;
+      min-height: 20px;
+      color: var(--grey-500);
+      z-index: 100;
+      transition: var(--transition-card);
+    }
   }
 `

@@ -4,7 +4,9 @@ import "aos/dist/aos.css"
 import {
   SectionContainer,
   IconCard,
-} from "../LeftandRightSection/LeftandRightSectionElements"
+  CreditSectionWrapper,
+  CreditSectionContainer,
+} from "./SocialsSectionElements"
 import { FiGithub as IconGitHub } from "react-icons/fi"
 import { FiLinkedin as IconLinkedIn } from "react-icons/fi"
 import { FiPhone as IconPhone } from "react-icons/fi"
@@ -62,7 +64,6 @@ const LeftandRightSection = () => {
           <p></p>
         </div>
       </SectionContainer>
-
       <SectionContainer right data-aos="fade-left">
         <div className="cards">
           <IconCard
@@ -84,6 +85,39 @@ const LeftandRightSection = () => {
           <p></p>
         </div>
       </SectionContainer>
+
+      <CreditSectionWrapper>
+        <CreditSectionContainer>
+          <div className="credit">
+            <p>Designed & Built by Jerome Marshall</p>
+          </div>
+          <div className="icons">
+            <IconCard href={socialsData[0].href} target="_blank">
+              <IconGitHub />
+              <span>{socialsData[0].displayName}</span>
+            </IconCard>
+
+            <IconCard href={socialsData[1].href} target="_blank">
+              <IconLinkedIn />
+              <span>{socialsData[1].displayName}</span>
+            </IconCard>
+
+            <IconCard href={socialsData[2].href} target="_blank">
+              <IconStackoverflow />
+              <span>{socialsData[2].displayName}</span>
+            </IconCard>
+            <IconCard href={socialsData[3].href} target="_blank">
+              <IconMail />
+              <span>{socialsData[3].displayName}</span>
+            </IconCard>
+
+            <IconCard href={socialsData[4].href}>
+              <IconPhone />
+              <span>{socialsData[4].displayName}</span>
+            </IconCard>
+          </div>
+        </CreditSectionContainer>
+      </CreditSectionWrapper>
     </>
   )
 }

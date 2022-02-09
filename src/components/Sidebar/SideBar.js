@@ -47,6 +47,7 @@ const SideBar = ({ isOpen, toggle }) => {
             onClick={toggle}
             smooth={true}
             duration={1000}
+            // offset={1000}
           >
             Contact
           </SidebarLink>

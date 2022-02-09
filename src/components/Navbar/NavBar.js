@@ -41,7 +41,12 @@ const NavBar = ({ toggle }) => {
               </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="contact" smooth={true} duration={1000}>
+              <NavLinks
+                to="contact"
+                smooth={true}
+                duration={1000}
+                // offset={1000}
+              >
                 Contact
               </NavLinks>
             </NavItem>
