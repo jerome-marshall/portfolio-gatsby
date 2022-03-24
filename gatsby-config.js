@@ -21,15 +21,41 @@ module.exports = {
         path: `${__dirname}/src/data/`,
       },
     },
+
+    // {
+    //   resolve: 'gatsby-source-rest-api',
+    //   options: {
+    //     endpoints: [
+    //       "https://portfolio-strapi4-api.herokuapp.com/api/jobs",
+    //       "https://portfolio-strapi4-api.herokuapp.com/api/projects",
+    //       // "https://portfolio-strapi4-api.herokuapp.com/api/about-page?populate=*",
+    //     ],
+    //   },
+    // },
+
+    // {
+    //   resolve: `gatsby-source-strapi`,
+    //   options: {
+    //     apiURL: `https://portfolio-strapi3-api.herokuapp.com`,
+    //     // queryLimit: 1000, // Defaults to 100
+    //     singleTypes: [`global-data`],
+    //     // collectionTypes: [`jobs`, `projects`, `tech-stacks`],
+    //   },
+    // },
+
     {
-      resolve: `gatsby-source-strapi`,
+      resolve: "gatsby-source-graphql",
       options: {
-        apiURL: `http://localhost:1337`,
-        // queryLimit: 1000, // Defaults to 100
-        singleTypes: [`hero-page`, `about-page`, `experience-page`],
-        collectionTypes: [`socials`, `projects`],
+        // Arbitrary name for the remote schema Query type
+        typeName: "GLSTRAPI",
+        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+        fieldName: "glstrapi",
+        // Url to query from
+        // url: "http://localhost:1337/graphql",
+        url: "https://portfolio-strapi3-api.herokuapp.com/graphql",
       },
     },
+
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,

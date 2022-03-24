@@ -1,6 +1,6 @@
 import React from "react"
 import SideBar from "../Sidebar/SideBar"
-import NavBar from "../NavBar/NavBar"
+import NavBar from "../Navbar/NavBar"
 import { useState } from "react"
 import "./layout.css"
 import GlobalStyles from "../../GlobalStyles"

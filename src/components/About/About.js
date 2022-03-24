@@ -9,58 +9,36 @@ import {
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import FadeHOC from "../FadeHOC/FadeHOC"
+import ReactMarkdown from 'react-markdown'
 
-const AboutSection = () => {
-  const data = useStaticQuery(graphql`
-    query GetAboutPage {
+const AboutSection = ({data}) => {
+  const imgData = useStaticQuery(graphql`
+    query GetImg {
       img: file(relativePath: { eq: "me.jpg" }) {
         childImageSharp {
           gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
         }
       }
-
-      strapiAboutPage {
-        descriptionPast
-        descriptionPresent
-        skillSet {
-          name
-        }
-      }
     }
   `)
 
-  const image = data.img.childImageSharp.gatsbyImageData
-
-  const skills = data.strapiAboutPage.skillSet
-  const skillSet = []
-
-  for (const key in skills) {
-    skillSet.push(skills[key].name)
-  }
-
-  const descriptionPast = data.strapiAboutPage.descriptionPast
-  const descriptionPresent = data.strapiAboutPage.descriptionPresent
+  const { description, pageTitle, skillset } = data
+  const image = imgData.img.childImageSharp.gatsbyImageData
 
   return (
     <StyledAboutSection id="about">
       <FadeHOC>
         <AboutContent>
-          <h2 className="nav-heading">About Me</h2>
+          <h2 className="nav-heading">{pageTitle}</h2>
           <Container>
             <AboutSummary>
               <div className="summary">
-                <p>{descriptionPast}</p>
-                <br />
-                <p>{descriptionPresent}</p>
-                <br />
-                <p>
-                  Here are a few technologies I've been working with recently:
-                </p>
+                <ReactMarkdown>{description}</ReactMarkdown>
                 <ul className="skills-list">
-                  {skillSet &&
-                    skillSet.map((skill, i) => (
-                      <li key={i}>
-                        <span>{skill}</span>
+                  {skillset &&
+                    skillset.map((skill, i) => (
+                      <li key={skill.name + i}>
+                        <span>{skill.name}</span>
                       </li>
                     ))}
                 </ul>
@@ -71,9 +49,8 @@ const AboutSection = () => {
                 <GatsbyImage
                   className="img"
                   image={image}
-                  alt="Jerome Marshall"
+                  alt="Jerome Marshall's portrait"
                 />
-                {/* <img className="img" src={MyPic} alt="My Pic" width={350} /> */}
               </div>
             </StyledPic>
           </Container>

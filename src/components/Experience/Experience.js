@@ -11,24 +11,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import FadeHOC from "../FadeHOC/FadeHOC"
 import ReactMarkdown from "react-markdown"
 
-const Experience = () => {
-  const data = useStaticQuery(graphql`
-    query GetExperiencePage {
-      strapiExperiencePage {
-        workDetails {
-          companyName
-          designation
-          timePeriod
-          url
-          workDone
-          doj(formatString: "YYMMDD")
-        }
-      }
-    }
-  `)
+const Experience = ({data}) => {
 
-  const jobsData = data.strapiExperiencePage.workDetails
-
+  const { pageTitle, jobs} = data
   const [activeTab, setActiveTab] = useState(0)
 
   const handleChange = (e, value) => {
@@ -40,17 +25,17 @@ const Experience = () => {
       <FadeHOC>
         <div className="container">
           <ExperienceContent>
-            <h2 className="nav-heading">Where I've worked</h2>
+            <h2 className="nav-heading">{pageTitle}</h2>
             <Container>
               <TabsContainer>
                 <Tabs selectedTab={activeTab} onChange={handleChange}>
-                  {jobsData &&
-                    jobsData.map((data, i) => {
-                      const company = data.companyName
+                  {jobs &&
+                    jobs.map((job, i) => {
+                      const company = job.companyName
                       return (
                         <Tab
                           key={company + "Tab"}
-                          lable={company}
+                          label={company}
                           value={i}
                         ></Tab>
                       )
@@ -58,15 +43,16 @@ const Experience = () => {
                 </Tabs>
               </TabsContainer>
               <TabPanelContainer>
-                {jobsData &&
-                  jobsData.map((data, i) => {
+                {jobs &&
+                  jobs.map((job, i) => {
+
                     const {
                       designation,
                       url,
                       companyName,
-                      timePeriod,
-                      workDone,
-                    } = data
+                      range,
+                      workDescription,
+                    } = job
                     return (
                       <TabPanel
                         key={companyName + "TabPanel"}
@@ -87,11 +73,11 @@ const Experience = () => {
                             </a>
                           </span>
                         </h3>
-                        <p className="expTime">{timePeriod}</p>
+                        <p className="expTime">{range}</p>
 
                         {/* job description */}
                         <div>
-                          <ReactMarkdown>{workDone}</ReactMarkdown>
+                          <ReactMarkdown>{workDescription}</ReactMarkdown>
                         </div>
                       </TabPanel>
                     )
