@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { Link } from "react-scroll"
 
 export const Nav = styled.nav`
-position: fixed;
+  position: fixed;
   /* background: red; */
   background: ${props => props.theme.colors.background_1};
   height: var(--nav-height);
@@ -11,13 +11,14 @@ position: fixed;
   z-index: 10;
 
   @media screen and (max-width: 960px) {
-    transition: 0ms.8s all ease;
+    /* transition: 0.8s all ease; */
   }
 `
 
 export const NavbarContainer = styled.div`
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
+  align-items: center;
   height: 100%;
   z-index: 1;
   width: 100%;
@@ -43,7 +44,7 @@ export const NavMenu = styled.ul`
   align-items: center;
   list-style: none;
   text-align: center;
-  margin-left: auto;
+  /* margin: 0 auto; */
 
   @media screen and (max-width: 768px) {
     display: none;
@@ -52,7 +53,7 @@ export const NavMenu = styled.ul`
 
 export const MobileIcon = styled.div`
   display: none;
-  margin-left: auto;
+  /* margin-left: auto; */
 
   @media screen and (max-width: 768px) {
     display: flex;
@@ -62,8 +63,6 @@ export const MobileIcon = styled.div`
     color: ${props => props.theme.colors.text_900};
   }
 `
-
-
 
 export const NavItem = styled.li`
   height: var(--nav-height);
@@ -75,13 +74,14 @@ export const NavLinks = styled(Link)`
   align-items: center;
   text-decoration: none;
   font-size: var(--fz-sm);
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   height: 100%;
   cursor: pointer;
+  border-bottom: 0px;
 
   &:hover {
     background: ${props => props.theme.colors.background_3};
-    border-bottom: 3px solid ${props => props.theme.colors.text_900};
+    border-bottom: 5px solid ${props => props.theme.colors.text_900};
   }
 `
 
@@ -94,22 +94,25 @@ export const NavBtn = styled.nav`
     display: none;
   }
 `
+export const NavToggle = styled.nav`
+  @media screen and (max-width: 768px) {
+    margin-left: auto;
+    margin-right: 1.5rem;
+  }
+`
 
 export const NavBtnLink = styled.a`
-  border-radius: var(--border-radius);
-  background: transparent;
-  white-space: nowrap;
-  padding: 0.4rem 1.12rem;
   color: ${props => props.theme.colors.text_900};
-  font-size: var(--fz-sm);
-  outline: none;
-  border: solid ${props => props.theme.colors.text_900};
-  cursor: pointer;
-  transition: var(--transition);
+  display: flex;
+  align-items: center;
   text-decoration: none;
+  font-size: var(--fz-sm);
+  padding: 0 1.5rem;
+  height: 100%;
+  cursor: pointer;
 
   &:hover {
-    background: ${props => props.theme.colors.background_hover};
-    color: ${props => props.theme.colors.text_hover};
+    background: ${props => props.theme.colors.background_3};
+    border-bottom: 3px solid ${props => props.theme.colors.text_900};
   }
 `

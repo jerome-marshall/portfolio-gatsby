@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   Nav,
   NavbarContainer,
@@ -9,11 +9,13 @@ import {
   MobileIcon,
   NavBtn,
   NavBtnLink,
+  NavToggle,
 } from "./NavBarElements"
 import { FaBars } from "react-icons/fa"
 import { animateScroll as scroll } from "react-scroll"
+import DayNightToggle from "react-day-and-night-toggle"
 
-const NavBar = ({ toggle }) => {
+const NavBar = ({ toggle, themeToggle, isDark }) => {
   return (
     <>
       <Nav>
@@ -21,9 +23,7 @@ const NavBar = ({ toggle }) => {
           <NavLogo to="/" onClick={() => scroll.scrollToTop()}>
             JM
           </NavLogo>
-          <MobileIcon onClick={toggle}>
-            <FaBars />
-          </MobileIcon>
+
           <NavMenu>
             <NavItem>
               <NavLinks to="about" smooth={true} duration={1000}>
@@ -50,15 +50,27 @@ const NavBar = ({ toggle }) => {
                 Contact
               </NavLinks>
             </NavItem>
-            <NavBtn>
+            <NavItem>
               <NavBtnLink
                 href="https://drive.google.com/file/d/1eh_IK2jKvSl-f7UvOLKPq-A6GfEOHd1I/view?usp=sharing"
                 target="_blank"
               >
-                Reusme
+                Resume
               </NavBtnLink>
-            </NavBtn>
+            </NavItem>
           </NavMenu>
+          <NavToggle>
+            <DayNightToggle
+              onChange={themeToggle}
+              checked={isDark}
+              size={30}
+              // shadows={false}
+            />
+          </NavToggle>
+
+          <MobileIcon onClick={toggle}>
+            <FaBars />
+          </MobileIcon>
         </NavbarContainer>
       </Nav>
     </>

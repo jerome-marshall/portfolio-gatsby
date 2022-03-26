@@ -21,6 +21,7 @@ import { createGlobalStyle, css } from "styled-components"
 // }
 
 export const darkTheme = {
+  id: "dark",
   colors: {
     accent_100: "#150d6d",
     accent_300: "#160c85",
@@ -38,11 +39,12 @@ export const darkTheme = {
     text_300: "#777777",
     text_100: "#333333",
     text_hover: "#111111",
-    shadow: "#eeeeee"
+    shadow: "#eeeeee",
   },
 }
 
 export const lightTheme = {
+  id: "light",
   colors: {
     primary: "#d89742",
     secondary: "#dd8109",
