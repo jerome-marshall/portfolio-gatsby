@@ -3,11 +3,11 @@ import styled from "styled-components"
 import { landScapeMediaQueries } from "../../GlobalStyles"
 
 export const HeroContainer = styled.div`
-  background: var(--background-dark);
+  background: ${props => props.theme.color.background_1};
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 30px;
+  /* padding: 0 30px; */
   height: 100vh;
   position: relative;
   z-index: 1;
@@ -26,14 +26,14 @@ export const HeroContent = styled.div`
 
   & p.myNameIs {
     margin-top: var(--margin-md);
-    color: #fff;
+    color: ${props => props.theme.color.text_700};
     font-size: var(--fz-md);
     text-align: center;
     max-width: 600px;
   }
 
   & h1.name {
-    color: var(--white);
+    color: ${props => props.theme.color.text_900};
     font-size: 70px;
     text-align: start;
 
@@ -46,7 +46,7 @@ export const HeroContent = styled.div`
   }
 
   & h2 {
-    color: #aaa;
+    color: ${props => props.theme.color.text_500};
     font-size: 50px;
     text-align: start;
 
@@ -60,7 +60,7 @@ export const HeroContent = styled.div`
 
   & p.summary {
     margin-top: var(--margin-md);
-    color: #999;
+    color: ${props => props.theme.color.text_300};
     font-size: var(--fz-lg);
     text-align: left;
     max-width: 600px;
@@ -77,12 +77,12 @@ export const HeroContent = styled.div`
 
 export const Button = styled(Link)`
   margin-top: 3rem;
-  color: #fff;
+  color: ${props => props.theme.color.text_700};
   background: transparent;
   font-size: 18px;
   text-align: left;
   border-radius: var(--border-radius);
-  border: solid white;
+  border: solid ${props => props.theme.color.text_700};
   padding: 1.25rem 1.75rem;
   transition: var(--transition);
 

@@ -3,8 +3,10 @@ import SideBar from "../Sidebar/SideBar"
 import NavBar from "../Navbar/NavBar"
 import { useState } from "react"
 import "./layout.css"
-import GlobalStyles from "../../GlobalStyles"
+import GlobalStyles, { darkTheme } from "../../GlobalStyles"
 import SocialsSection from "../SocialsSection/SocialsSection"
+import { ThemeProvider } from "styled-components"
+import { lightTheme } from "../../GlobalStyles"
 
 const Layout = props => {
   const [SideBarIsOpen, setSideBarIsOpen] = useState(false)
@@ -14,14 +16,16 @@ const Layout = props => {
   }
 
   return (
-    <div className="wrapper">
-      <GlobalStyles />
-      <SideBar isOpen={SideBarIsOpen} toggle={toggle}></SideBar>
-      <NavBar toggle={toggle}></NavBar>
+    <ThemeProvider theme={darkTheme}>
+      <div className="wrapper">
+        <GlobalStyles />
+        <SideBar isOpen={SideBarIsOpen} toggle={toggle}></SideBar>
+        <NavBar toggle={toggle}></NavBar>
 
-      {props.children}
-      <SocialsSection></SocialsSection>
-    </div>
+        {props.children}
+        <SocialsSection></SocialsSection>
+      </div>
+    </ThemeProvider>
   )
 }
 

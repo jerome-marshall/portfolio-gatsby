@@ -2,15 +2,12 @@ import styled from "styled-components"
 import { Link } from "react-scroll"
 
 export const Nav = styled.nav`
-  background: var(--background-dark);
+position: fixed;
+  /* background: red; */
+  background: ${props => props.theme.color.background_1};
   height: var(--nav-height);
-  margin-top: calc(0px - var(--nav-height));
-  display: flex;
-  justify-content: stretch;
-  align-items: center;
-  font-size: 1rem;
-  position: sticky;
-  top: 0;
+  right: 0;
+  left: 0;
   z-index: 10;
 
   @media screen and (max-width: 960px) {
@@ -20,17 +17,17 @@ export const Nav = styled.nav`
 
 export const NavbarContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  height: var(--nav-height);
+  /* justify-content: space-between; */
+  height: 100%;
   z-index: 1;
   width: 100%;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   padding: 0px 20px;
   max-width: 100%;
 `
 
 export const NavLogo = styled(Link)`
-  color: var(--white);
+  color: ${props => props.theme.color.text_900};
   justify-self: flex-start;
   cursor: pointer;
   font-size: var(--fz-xxl);
@@ -41,6 +38,18 @@ export const NavLogo = styled(Link)`
   text-decoration: none;
 `
 
+export const NavMenu = styled.ul`
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  margin-left: auto;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`
+
 export const MobileIcon = styled.div`
   display: none;
 
@@ -49,27 +58,18 @@ export const MobileIcon = styled.div`
     align-self: center;
     font-size: calc(var(--fz-xxl) + 3px);
     cursor: pointer;
-    color: var(--white);
+    color: ${props => props.theme.color.text_900};
   }
 `
 
-export const NavMenu = styled.ul`
-  display: flex;
-  align-items: center;
-  list-style: none;
-  text-align: center;
 
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`
 
 export const NavItem = styled.li`
   height: var(--nav-height);
 `
 
 export const NavLinks = styled(Link)`
-  color: var(--white);
+  color: ${props => props.theme.color.text_900};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -99,16 +99,16 @@ export const NavBtnLink = styled.a`
   background: transparent;
   white-space: nowrap;
   padding: 0.4rem 1.12rem;
-  color: #eee;
+  color: ${props => props.theme.color.text_900};
   font-size: var(--fz-sm);
   outline: none;
-  border: solid white;
+  border: solid ${props => props.theme.color.text_900};
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
 
   &:hover {
-    background: var(--white);
-    color: #010606;
+    background: ${props => props.theme.color.background_hover};
+    color: ${props => props.theme.color.text_hover};
   }
 `
