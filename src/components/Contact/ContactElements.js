@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { landScapeMediaQueries } from "../../GlobalStyles"
 
 export const ContactContainer = styled.div`
-  background: var(--background-dark);
+  background: ${({ theme }) => theme.colors.background_1};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,14 +24,14 @@ export const ContactContent = styled.div`
 
   & p.sub-title {
     margin-top: var(--margin-md);
-    color: var(--grey-300);
+    color: ${({ theme }) => theme.colors.text_300};
     font-size: var(--fz-md);
     text-align: center;
     width: 100%;
   }
 
   & h2 {
-    color: var(--white);
+    color: ${({ theme }) => theme.colors.text_900};
     font-size: 50px;
     width: 100%;
     text-align: center;
@@ -46,7 +46,7 @@ export const ContactContent = styled.div`
 
   & p.description {
     margin-top: var(--margin-md);
-    color: var(--grey-700);
+    color: ${({ theme }) => theme.colors.text_500};
     font-size: var(--fz-lg);
     text-align: center;
     line-height: var(--line-height-sm);
@@ -64,19 +64,19 @@ export const StyledA = styled.a`
   margin: 0 auto;
   position: relative;
   margin-top: 3rem;
-  color: var(--white);
+  color: ${({ theme }) => theme.colors.text_900};
   background: transparent;
   font-size: 18px;
   text-align: center;
   text-decoration: none;
   border-radius: var(--border-radius);
-  border: solid white;
+  border: solid ${({ theme }) => theme.colors.text_900};
   padding: 1rem 1.75rem;
   transition: var(--transition);
 
   &:hover {
-    background: var(--white);
-    color: #010606;
+    background: ${({ theme }) => theme.colors.background_hover};
+    color: ${({ theme }) => theme.colors.text_hover};
   }
 
   &:visited {

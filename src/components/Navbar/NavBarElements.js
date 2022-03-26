@@ -4,7 +4,7 @@ import { Link } from "react-scroll"
 export const Nav = styled.nav`
 position: fixed;
   /* background: red; */
-  background: ${props => props.theme.color.background_1};
+  background: ${props => props.theme.colors.background_1};
   height: var(--nav-height);
   right: 0;
   left: 0;
@@ -27,7 +27,7 @@ export const NavbarContainer = styled.div`
 `
 
 export const NavLogo = styled(Link)`
-  color: ${props => props.theme.color.text_900};
+  color: ${props => props.theme.colors.text_900};
   justify-self: flex-start;
   cursor: pointer;
   font-size: var(--fz-xxl);
@@ -52,13 +52,14 @@ export const NavMenu = styled.ul`
 
 export const MobileIcon = styled.div`
   display: none;
+  margin-left: auto;
 
   @media screen and (max-width: 768px) {
     display: flex;
     align-self: center;
     font-size: calc(var(--fz-xxl) + 3px);
     cursor: pointer;
-    color: ${props => props.theme.color.text_900};
+    color: ${props => props.theme.colors.text_900};
   }
 `
 
@@ -69,7 +70,7 @@ export const NavItem = styled.li`
 `
 
 export const NavLinks = styled(Link)`
-  color: ${props => props.theme.color.text_900};
+  color: ${props => props.theme.colors.text_900};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -79,8 +80,8 @@ export const NavLinks = styled(Link)`
   cursor: pointer;
 
   &:hover {
-    background: #111;
-    border-bottom: 3px solid #eee;
+    background: ${props => props.theme.colors.background_3};
+    border-bottom: 3px solid ${props => props.theme.colors.text_900};
   }
 `
 
@@ -99,16 +100,16 @@ export const NavBtnLink = styled.a`
   background: transparent;
   white-space: nowrap;
   padding: 0.4rem 1.12rem;
-  color: ${props => props.theme.color.text_900};
+  color: ${props => props.theme.colors.text_900};
   font-size: var(--fz-sm);
   outline: none;
-  border: solid ${props => props.theme.color.text_900};
+  border: solid ${props => props.theme.colors.text_900};
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
 
   &:hover {
-    background: ${props => props.theme.color.background_hover};
-    color: ${props => props.theme.color.text_hover};
+    background: ${props => props.theme.colors.background_hover};
+    color: ${props => props.theme.colors.text_hover};
   }
 `

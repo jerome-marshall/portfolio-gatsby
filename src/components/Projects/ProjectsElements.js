@@ -7,11 +7,11 @@ export const StyledProjectsSection = styled.section`
   max-width: 100%;
   /* height: 100vh; */
   padding-top: 70px;
-  background: var(--background-dark);
+  background: ${({ theme }) => theme.colors.background_1};
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  color: var(--white);
+  color: ${({ theme }) => theme.colors.text_900};
 
   @media (max-width: 768px) {
     display: block;
@@ -32,7 +32,7 @@ export const ProjectsContent = styled.div`
   /* overflow: hidden; */
 
   & > h2 {
-    color: var(--white);
+    color: ${({ theme }) => theme.colors.text_900};
     margin: var(--margin-md) 0;
     font-size: var(--fz-heading-md);
   }
@@ -60,7 +60,7 @@ export const ProjectsContent = styled.div`
 
 export const ProjectLI = styled.li`
   /* border: 3px solid white; */
-  background-color: var(--background-dark-highlight);
+  background-color: ${({ theme }) => theme.colors.background_2};
   position: relative;
   list-style: none;
   display: grid;
@@ -73,48 +73,48 @@ export const ProjectLI = styled.li`
   & .leftIcon {
     /* grid-area: "leftIcon"; */
     /* background-color: chocolate; */
-    background-color: var(--background-dark-highlight);
+    /* background-color: var(--background-dark-highlight); */
     justify-self: start;
     align-self: center;
     /* padding: 10px; */
 
     & svg {
-      background-color: var(--background-dark-highlight);
+      /* background-color: var(--background-dark-highlight); */
       width: 35px;
       height: 35px;
     }
   }
 
   & .rightIcons {
-    background-color: var(--background-dark-highlight);
+    /* background-color: var(--background-dark-highlight); */
     justify-self: end;
     align-self: center;
     /* padding-left: 10px; */
 
     & a {
-      background-color: var(--background-dark-highlight);
-      color: var(--white);
+      /* background-color: var(--background-dark-highlight); */
+      color: ${({ theme }) => theme.colors.text_900};
     }
 
     & svg {
-      background-color: var(--background-dark-highlight);
+      /* background-color: var(--background-dark-highlight); */
       margin-right: 10px;
       width: 22px;
       height: 22px;
       transition: var(--transition);
 
       :hover {
-        color: #0088ff;
+        color: ${({ theme }) => theme.colors.accent_900};
       }
     }
   }
 
   & .content {
-    background-color: var(--background-dark-highlight);
+    /* background-color: var(--background-dark-highlight); */
     grid-column: 1/3;
 
     & h3.title {
-      background-color: var(--background-dark-highlight);
+      /* background-color: var(--background-dark-highlight); */
       margin: 20px 0 10px 0;
       font-size: var(--fz-xl);
       transition: var(--transition);
@@ -122,8 +122,8 @@ export const ProjectLI = styled.li`
 
     & div.description {
       & > p {
-        background-color: var(--background-dark-highlight);
-        color: var(--grey-300);
+        /* background-color: var(--background-dark-highlight); */
+        color: ${({ theme }) => theme.colors.text_300};
         font-size: var(--fz-md);
         margin-bottom: 20px;
       }
@@ -132,7 +132,7 @@ export const ProjectLI = styled.li`
 
   & ul {
     /* background-color: cadetblue; */
-    background-color: var(--background-dark-highlight);
+    /* background-color: var(--background-dark-highlight); */
     grid-column: 1/3;
     justify-self: end;
     align-self: end;
@@ -140,11 +140,11 @@ export const ProjectLI = styled.li`
   }
 
   & li {
-    background-color: var(--background-dark-highlight);
+    /* background-color: var(--background-dark-highlight); */
     /* width: 25%;
     float: right; */
 
-    color: var(--grey-500);
+    color: ${({ theme }) => theme.colors.text_500};
     font-size: var(--fz-xs);
     padding: 7px;
     transition: var(--transition);
@@ -183,7 +183,7 @@ export const ProjectLI = styled.li`
     transform: translateY(-7px);
     & h3.title,
     li {
-      color: #0088ff;
+      color: ${({ theme }) => theme.colors.accent_900};
     }
   }
 `

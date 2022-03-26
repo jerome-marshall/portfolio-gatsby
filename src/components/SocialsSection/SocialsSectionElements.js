@@ -45,7 +45,7 @@ export const IconCard = styled.a`
   gap: 12px;
   padding: 12px;
   margin-bottom: 20px;
-  background-color: var(--background-dark-highlight);
+  background-color: ${props => props.theme.colors.background_3};
   /* justify-content: ${props => props.right && "flex-end"}; */
   align-items: center;
   border-radius: 50px;
@@ -68,14 +68,14 @@ export const IconCard = styled.a`
   }
 
   :hover svg {
-    color: var(--color-accent);
+    color: ${props => props.theme.colors.accent_900};
     min-width: 22px;
     min-height: 22px;
   }
 
   & span {
     background: transparent;
-    color: white;
+    color: ${props => props.theme.colors.text_900};
 
     /* display: none; */
     font-size: 14px;
@@ -87,7 +87,7 @@ export const IconCard = styled.a`
     background: transparent;
     min-width: 20px;
     min-height: 20px;
-    color: var(--grey-500);
+    color: ${props => props.theme.colors.text_500};
     transition: var(--transition-card);
   }
 `
@@ -96,7 +96,7 @@ export const CreditSectionWrapper = styled.div`
   display: none;
   position: relative;
   background: transparent;
-  color: white;
+  /* color: white; */
   margin-top: -89px;
   z-index: 1000;
 
@@ -109,14 +109,14 @@ export const CreditSectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   background: transparent;
-  color: white;
+  /* color: white; */
   align-items: center;
   /* padding: 10px; */
 
   .credit {
     & p {
       font-size: var(--fz-xs);
-      color: var(--grey-500);
+      color: ${props => props.theme.colors.text_500};
     }
   }
 
@@ -137,7 +137,7 @@ export const CreditSectionContainer = styled.div`
     }
 
     :hover svg {
-      color: var(--grey-500);
+      color: ${props => props.theme.colors.accent_900};
     }
 
     & span {
@@ -149,7 +149,7 @@ export const CreditSectionContainer = styled.div`
       background: transparent;
       min-width: 20px;
       min-height: 20px;
-      color: var(--grey-500);
+      color: ${props => props.theme.colors.text_500};
       z-index: 100;
       transition: var(--transition-card);
     }

@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { landScapeMediaQueries } from "../../GlobalStyles"
 
 export const HeroContainer = styled.div`
-  background: ${props => props.theme.color.background_1};
+  background: ${props => props.theme.colors.background_1};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,14 +26,14 @@ export const HeroContent = styled.div`
 
   & p.myNameIs {
     margin-top: var(--margin-md);
-    color: ${props => props.theme.color.text_700};
+    color: ${props => props.theme.colors.text_700};
     font-size: var(--fz-md);
     text-align: center;
     max-width: 600px;
   }
 
   & h1.name {
-    color: ${props => props.theme.color.text_900};
+    color: ${props => props.theme.colors.text_900};
     font-size: 70px;
     text-align: start;
 
@@ -46,7 +46,7 @@ export const HeroContent = styled.div`
   }
 
   & h2 {
-    color: ${props => props.theme.color.text_500};
+    color: ${props => props.theme.colors.text_500};
     font-size: 50px;
     text-align: start;
 
@@ -60,7 +60,7 @@ export const HeroContent = styled.div`
 
   & p.summary {
     margin-top: var(--margin-md);
-    color: ${props => props.theme.color.text_300};
+    color: ${props => props.theme.colors.text_300};
     font-size: var(--fz-lg);
     text-align: left;
     max-width: 600px;
@@ -77,18 +77,18 @@ export const HeroContent = styled.div`
 
 export const Button = styled(Link)`
   margin-top: 3rem;
-  color: ${props => props.theme.color.text_700};
+  color: ${props => props.theme.colors.text_700};
   background: transparent;
   font-size: 18px;
   text-align: left;
   border-radius: var(--border-radius);
-  border: solid ${props => props.theme.color.text_700};
+  border: solid ${props => props.theme.colors.text_700};
   padding: 1.25rem 1.75rem;
   transition: var(--transition);
 
   &:hover {
-    background: var(--white);
-    color: #010606;
+    background: ${props => props.theme.colors.background_hover};
+    color: ${props => props.theme.colors.text_hover};
   }
 
   @media screen and (max-width: 480px) {

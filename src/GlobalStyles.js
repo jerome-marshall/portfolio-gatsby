@@ -20,18 +20,14 @@ import { createGlobalStyle, css } from "styled-components"
 //   ...padding,
 // }
 
-const colors = {
-  
-}
-
 export const darkTheme = {
-  color: {
-    accent_100: "#150C75",
-    accent_300: "#1A0E93",
+  colors: {
+    accent_100: "#150d6d",
+    accent_300: "#160c85",
     accent_500: "#1A0E93",
-    accent_700: "#1A0E93",
-    accent_900: "#2417A3",
-    accent_hover: "#2661c5",
+    accent_700: "#2b2ebb",
+    accent_900: "#484bfd",
+    accent_hover: "#6b6dff",
     background_1: "#06041D",
     background_2: "#0A072D",
     background_3: "#0A0537",
@@ -41,18 +37,19 @@ export const darkTheme = {
     text_500: "#999999",
     text_300: "#777777",
     text_100: "#333333",
-    text_hover: "#111111"
+    text_hover: "#111111",
+    shadow: "#eeeeee"
   },
 }
 
 export const lightTheme = {
-  color: {
+  colors: {
     primary: "#d89742",
     secondary: "#dd8109",
     background_1: "#ebebeb",
     background_2: "#d6d6d6",
     background_3: "#b4b4b4",
-    ...colors
+    // ...colorss
   },
 }
 
@@ -60,7 +57,7 @@ const GlobalStyles = createGlobalStyle`
   html {
     --background-dark: #0c0c0c;
     --background-dark-highlight: #1f1f1f;
-    --color-accent: #3a32ff;
+    --colors-accent: #3a32ff;
     --white: #eee;
     --grey-100: #ddd;
     --grey-300: #bbb;

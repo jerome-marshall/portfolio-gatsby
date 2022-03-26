@@ -4,7 +4,7 @@ import { landScapeMediaQueries } from "../../GlobalStyles"
 export const StyledAboutSection = styled.section`
   max-width: 100%;
   height: 100vh;
-  background: var(--background-dark);
+  background: ${({ theme }) => theme.colors.background_1};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ export const AboutContent = styled.div`
   max-width: calc(var(--max-width) - 50px);
 
   & > h2 {
-    color: var(--white);
+    color: ${({ theme }) => theme.colors.text_900};
     padding: var(--margin-md) 0;
     font-size: var(--fz-heading-sm);
   }
@@ -66,7 +66,7 @@ export const AboutSummary = styled.div`
   }
 
   & p {
-    color: var(--grey-300);
+    color: ${({ theme }) => theme.colors.text_500};
     font-size: var(--fz-md);
     line-height: var(--line-height-sm);
   }
@@ -86,7 +86,7 @@ export const AboutSummary = styled.div`
     }
 
     li {
-      color: var(--white);
+      color: ${({ theme }) => theme.colors.text_900};
       position: relative;
       margin-bottom: 10px;
       padding-left: 20px;
@@ -100,7 +100,7 @@ export const AboutSummary = styled.div`
         position: absolute;
         left: 0;
         /* top: 1px; */
-        color: var(--green);
+        color: ${({ theme }) => theme.colors.accent_900};
         font-size: var(--fz-sm);
         /* line-height: 15px; */
       }
@@ -144,7 +144,7 @@ export const StyledPic = styled.div`
       border-radius: var(--border-radius);
       opacity: 0.4;
       object-fit: contain;
-      box-shadow: 0 10px 30px -15px #fff;
+      box-shadow: 0 10px 30px -15px ${({ theme }) => theme.colors.shadow};
       transition: all 500ms ease-in-out;
 
       :hover {
