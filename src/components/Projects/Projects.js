@@ -10,34 +10,14 @@ import { FiFolder as IconFolder } from "react-icons/fi"
 import { useStaticQuery, graphql } from "gatsby"
 import FadeHOC from "../FadeHOC/FadeHOC"
 
+
 const Projects = (props) => {
-console.log("🚀 ~ file: Projects.js ~ line 14 ~ Projects ~ data", props.data)
 
 const { pageTitle, projects } = props.data
-  
-  // const data = useStaticQuery(graphql`
-  //   query GetProjects {
-  //     allStrapiProjects(sort: { fields: date, order: DESC }) {
-  //       nodes {
-  //         techStack {
-  //           name
-  //         }
-  //         date
-  //         description
-  //         external
-  //         github
-  //         name
-  //         personal
-  //         projectFor
-  //         showInProjects
-  //       }
-  //     }
-  //   }
-  // `)
 
   return (
     <StyledProjectsSection id="projects">
-      <FadeHOC>
+      <FadeHOC animation="fade-up">
         <ProjectsContent>
           <h2>{pageTitle}</h2>
           <ul className="project-grid">

@@ -27,7 +27,7 @@ const AboutSection = ({data}) => {
 
   return (
     <StyledAboutSection id="about">
-      <FadeHOC>
+      <FadeHOC animation="fade-up">
         <AboutContent>
           <h2 className="nav-heading">{pageTitle}</h2>
           <Container>

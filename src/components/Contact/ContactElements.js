@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { landScapeMediaQueries } from "../../GlobalStyles"
 
 export const ContactContainer = styled.div`
-  background: ${({ theme }) => theme.colors.background_1};
+  /* background: ${({ theme }) => theme.colors.background_1}; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,6 +73,7 @@ export const StyledA = styled.a`
   border: solid ${({ theme }) => theme.colors.text_900};
   padding: 1rem 1.75rem;
   transition: var(--transition);
+  transition-property: background color;
 
   &:hover {
     background: ${({ theme }) => theme.colors.background_hover};

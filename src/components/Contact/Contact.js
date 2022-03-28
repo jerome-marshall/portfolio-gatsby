@@ -7,7 +7,7 @@ const Contact = ({data}) => {
 
   return (
     <ContactContainer id="contact">
-      <FadeHOC>
+      <FadeHOC animation="fade-up">
         <ContactContent>
           <p className="sub-title">{pageTitleIntro}</p>
           <h2 className="title">{pageTitle}</h2>

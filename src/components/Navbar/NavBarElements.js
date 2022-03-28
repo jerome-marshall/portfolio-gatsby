@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { Link } from "react-scroll"
 
 export const Nav = styled.nav`
@@ -9,6 +9,8 @@ export const Nav = styled.nav`
   right: 0;
   left: 0;
   z-index: 10;
+  transition: ${({ theme }) => theme.transitions.easeInOut.theme} !important;
+  /* transition-property: background; */
 
   @media screen and (max-width: 960px) {
     /* transition: 0.8s all ease; */
@@ -25,6 +27,8 @@ export const NavbarContainer = styled.div`
   /* margin-top: 20px; */
   padding: 0px 20px;
   max-width: 100%;
+  transition: ${({ theme }) => theme.transitions.easeInOut.normal};
+
 `
 
 export const NavLogo = styled(Link)`
@@ -67,8 +71,7 @@ export const MobileIcon = styled.div`
 export const NavItem = styled.li`
   height: var(--nav-height);
 `
-
-export const NavLinks = styled(Link)`
+const navItems = css`
   color: ${props => props.theme.colors.text_900};
   display: flex;
   align-items: center;
@@ -78,11 +81,18 @@ export const NavLinks = styled(Link)`
   height: 100%;
   cursor: pointer;
   border-bottom: 0px;
+  transition: all 0.3s ease-out;
 
   &:hover {
     background: ${props => props.theme.colors.background_3};
-    border-bottom: 5px solid ${props => props.theme.colors.text_900};
+    border-bottom: 3px solid ${props => props.theme.colors.text_900};
   }
+`
+export const NavLinks = styled(Link)`
+  ${navItems}
+`
+export const NavBtnLink = styled.a`
+  ${navItems}
 `
 
 export const NavBtn = styled.nav`
@@ -101,18 +111,4 @@ export const NavToggle = styled.nav`
   }
 `
 
-export const NavBtnLink = styled.a`
-  color: ${props => props.theme.colors.text_900};
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-size: var(--fz-sm);
-  padding: 0 1.5rem;
-  height: 100%;
-  cursor: pointer;
 
-  &:hover {
-    background: ${props => props.theme.colors.background_3};
-    border-bottom: 3px solid ${props => props.theme.colors.text_900};
-  }
-`

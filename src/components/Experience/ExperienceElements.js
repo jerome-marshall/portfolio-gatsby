@@ -4,7 +4,6 @@ import { landScapeMediaQueries } from "../../GlobalStyles"
 export const StyledExperienceSection = styled.section`
   max-width: 100%;
   height: 100vh;
-  background: ${({ theme }) => theme.colors.background_1};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,7 +82,7 @@ export const TabPanelContainer = styled.div`
       text-decoration: none;
       text-decoration-skip-ink: auto;
       position: relative;
-      transition: var(--transition);
+      /* transition: var(--transition); */
       color: ${({ theme }) => theme.colors.accent_900};
       &:hover {
         cursor: pointer;
@@ -142,7 +141,7 @@ export const TabHeaderContainer = styled.div`
 
 export const StylizedTab = styled.button`
   color: ${({ theme }) => theme.colors.text_300};
-  /* width: 8.5rem; */
+  /* width: 8.5rem; */  
   white-space: nowrap;
   padding: 12px 15px;
   font-size: var(--fz-sm);
@@ -152,7 +151,7 @@ export const StylizedTab = styled.button`
   border-left: 3px solid ${({ theme }) => theme.colors.accent_100};
   /* border-radius: var(--border-radius); */
   cursor: ${p => (p.disabled ? "default" : "pointer")};
-  transition: all 0.3s ease-in-out;
+  /* transition: all 0.3s ease-in-out; */
 
   /* ${p =>
     p.active

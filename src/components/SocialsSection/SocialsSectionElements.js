@@ -62,6 +62,10 @@ export const IconCard = styled.a`
     width: ${props => props.width + "px"};
   }
 
+  :visited, :link {
+    color: ${props => props.theme.colors.text_900};
+  }
+
   :hover span {
     display: inline;
     /* transition: all 1s linear; */
@@ -136,7 +140,7 @@ export const CreditSectionContainer = styled.div`
       /* transition: all 1s linear; */
     }
 
-    :hover svg {
+    a:hover svg {
       color: ${props => props.theme.colors.accent_900};
     }
 
@@ -151,7 +155,11 @@ export const CreditSectionContainer = styled.div`
       min-height: 20px;
       color: ${props => props.theme.colors.text_500};
       z-index: 100;
-      transition: var(--transition-card);
+      transition: ${({ theme }) => theme.transitions.easeInOut.normal};
+
+      /* :hover {
+        color: ${props => props.theme.colors.accent_900};
+      } */
     }
   }
 `

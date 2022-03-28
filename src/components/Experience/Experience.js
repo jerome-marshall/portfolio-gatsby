@@ -22,7 +22,7 @@ const Experience = ({data}) => {
 
   return (
     <StyledExperienceSection id="experience">
-      <FadeHOC>
+      <FadeHOC animation="fade-up">
         <div className="container">
           <ExperienceContent>
             <h2 className="nav-heading">{pageTitle}</h2>

@@ -4,7 +4,6 @@ import { landScapeMediaQueries } from "../../GlobalStyles"
 export const StyledAboutSection = styled.section`
   max-width: 100%;
   height: 100vh;
-  background: ${({ theme }) => theme.colors.background_1};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,6 +90,8 @@ export const AboutSummary = styled.div`
       margin-bottom: 10px;
       padding-left: 20px;
       text-indent: 0px;
+      /* transition to cancel */
+      transition: all 0.1s ease-in-out;
 
       /* font-family: var(--font-mono); */
       font-size: var(--fz-sm);
@@ -142,10 +143,11 @@ export const StyledPic = styled.div`
       max-width: 280px;
       max-height: 100%;
       border-radius: var(--border-radius);
-      opacity: 0.4;
+      opacity: 0.6;
       object-fit: contain;
       box-shadow: 0 10px 30px -15px ${({ theme }) => theme.colors.shadow};
-      transition: all 500ms ease-in-out;
+      transition: all 300ms ease-in-out;
+      transition-property: max-width opacity;
 
       :hover {
         max-width: 300px;

@@ -1,4 +1,6 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import Aos from "aos"
+import "aos/dist/aos.css"
 import {
   Nav,
   NavbarContainer,
@@ -14,11 +16,25 @@ import {
 import { FaBars } from "react-icons/fa"
 import { animateScroll as scroll } from "react-scroll"
 import DayNightToggle from "react-day-and-night-toggle"
+import FadeHOC from "../FadeHOC/FadeHOC"
 
 const NavBar = ({ toggle, themeToggle, isDark }) => {
+
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+    })
+  }, [])
+
+  useEffect(() => {
+    if (Aos) {
+      Aos.refresh()
+    }
+  })
+
   return (
     <>
-      <Nav>
+      <Nav data-aos="fade-down" data-aos-once="true">
         <NavbarContainer>
           <NavLogo to="/" onClick={() => scroll.scrollToTop()}>
             JM

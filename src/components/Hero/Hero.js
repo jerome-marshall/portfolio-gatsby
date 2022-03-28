@@ -3,13 +3,16 @@ import FadeHOC from "../FadeHOC/FadeHOC"
 import { HeroContainer, HeroContent, Button } from "./HeroElements"
 import { useStaticQuery, graphql } from "gatsby"
 
+
 const Hero = ({data}) => {
 
+
+  
   const {pageTitle, name, description, shortDescription } = data
 
   return (
     <HeroContainer id="hero">
-      <FadeHOC>
+      <FadeHOC animation="fade-up">
         <HeroContent>
           <p className="myNameIs">{pageTitle}</p>
           <h1 className="name">{name}.</h1>

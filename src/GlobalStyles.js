@@ -1,24 +1,19 @@
 import { createGlobalStyle, css } from "styled-components"
 
-// const padding = {
-//   sm: "1rem",
-//   md: "2rem",
-//   lg: "3rem",
-//   xl: "4rem",
-// }
-
-// const fz = {
-//   xs: "1rem",
-//   sm: "1.2rem",
-//   md: "1.5rem",
-//   lg: "2rem",
-//   xl: "2.5rem",
-// }
-
-// const styles = {
-//   fontSize: fz,
-//   ...padding,
-// }
+const transitions = {
+  linear: {
+    fast: "all 0.2s linear",
+    normal: "all 0.3s linear",
+    slow: "all 0.6s linear",
+    theme: "all 1s linear",
+  },
+  easeInOut: {
+    fast: "all 0.2s ease-in-out",
+    normal: "all 0.3s ease-in-out",
+    slow: "all 0.6s ease-in-out",
+    theme: "all 1s ease-in-out",
+  },
+}
 
 export const darkTheme = {
   id: "dark",
@@ -41,6 +36,7 @@ export const darkTheme = {
     text_hover: "#111111",
     shadow: "#eeeeee",
   },
+  transitions,
 }
 
 export const lightTheme = {
@@ -51,11 +47,47 @@ export const lightTheme = {
     background_1: "#ebebeb",
     background_2: "#d6d6d6",
     background_3: "#b4b4b4",
-    // ...colorss
   },
+  transitions,
 }
 
 const GlobalStyles = createGlobalStyle`
+body {
+  background: ${({ theme }) => theme.colors.background_1};
+  transition: background 1s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  /* transition: all 1s ease-in-out ; */
+  /* background: var(--background-dark); */
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--background-dark);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--grey-500);
+  border-radius: 100px;
+  /* border: 3px solid orange; */
+}
+
   html {
     --background-dark: #0c0c0c;
     --background-dark-highlight: #1f1f1f;
@@ -87,6 +119,8 @@ const GlobalStyles = createGlobalStyle`
     --line-height-sm: 1.6;
     --transition: all 0.3s ease-in-out;
     --transition-card: all 0.5s ease-in-out;
+    --transition-theme: all 1s ease-in-out;
+    --transition-theme-property: background color background-color;
     --nav-height: 80px
   }
 `

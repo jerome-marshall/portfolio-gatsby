@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { landScapeMediaQueries } from "../../GlobalStyles"
 
 export const HeroContainer = styled.div`
-  background: ${props => props.theme.colors.background_1};
+  /* background: ${props => props.theme.colors.background_1}; */
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, {css} from "styled-components"
 import { landScapeMediaQueries } from "../../GlobalStyles"
 
 export const StyledProjectsSection = styled.section`
@@ -7,11 +7,11 @@ export const StyledProjectsSection = styled.section`
   max-width: 100%;
   /* height: 100vh; */
   padding-top: 70px;
-  background: ${({ theme }) => theme.colors.background_1};
+  /* background: ${({ theme }) => theme.colors.background_1}; */
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  color: ${({ theme }) => theme.colors.text_900};
+  /* color: ${({ theme }) => theme.colors.text_900}; */
 
   @media (max-width: 768px) {
     display: block;
@@ -68,12 +68,16 @@ export const ProjectLI = styled.li`
   grid-template-rows: 2fr 8fr;
   width: 100%;
   padding: 30px 20px;
-  transition: var(--transition);
+  transition: ${({theme}) => theme.themeChanging ? theme.transitions.easeInOut.theme : theme.transitions.linear.fast};
+  /* transition-property: var(--transition-theme-property); */
+
+  
 
   & .leftIcon {
     /* grid-area: "leftIcon"; */
     /* background-color: chocolate; */
     /* background-color: var(--background-dark-highlight); */
+    color: ${({ theme }) => theme.colors.text_700};
     justify-self: start;
     align-self: center;
     /* padding: 10px; */
@@ -115,6 +119,7 @@ export const ProjectLI = styled.li`
 
     & h3.title {
       /* background-color: var(--background-dark-highlight); */
+      color: ${({ theme }) => theme.colors.text_900};
       margin: 20px 0 10px 0;
       font-size: var(--fz-xl);
       transition: var(--transition);
@@ -147,7 +152,7 @@ export const ProjectLI = styled.li`
     color: ${({ theme }) => theme.colors.text_500};
     font-size: var(--fz-xs);
     padding: 7px;
-    transition: var(--transition);
+    /* transition: var(--transition); */
 
     display: inline;
     justify-self: end;
@@ -180,10 +185,24 @@ export const ProjectLI = styled.li`
   }
 
   :hover {
+    /* transition: all 0.1s linear; */
+
     transform: translateY(-7px);
     & h3.title,
     li {
       color: ${({ theme }) => theme.colors.accent_900};
     }
+
+    /* :after{
+      transition: all 0.3s linear;
+
+    } */
+
+    /* & .rightIcons {
+      & a {
+        background-color: var(--background-dark-highlight);
+        color: ${({ theme }) => theme.colors.accent_900};
+      }
+    } */
   }
-`
+}`
