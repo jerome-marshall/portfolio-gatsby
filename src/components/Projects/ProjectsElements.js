@@ -108,7 +108,7 @@ export const ProjectLI = styled.li`
       transition: var(--transition);
 
       :hover {
-        color: ${({ theme }) => theme.colors.accent_900};
+        color: ${({ theme }) => theme.colors.primary};
       }
     }
   }
@@ -190,7 +190,7 @@ export const ProjectLI = styled.li`
     transform: translateY(-7px);
     & h3.title,
     li {
-      color: ${({ theme }) => theme.colors.accent_900};
+      color: ${({ theme }) => theme.colors.primary};
     }
 
     /* :after{
@@ -201,7 +201,7 @@ export const ProjectLI = styled.li`
     /* & .rightIcons {
       & a {
         background-color: var(--background-dark-highlight);
-        color: ${({ theme }) => theme.colors.accent_900};
+        color: ${({ theme }) => theme.colors.primary};
       }
     } */
   }

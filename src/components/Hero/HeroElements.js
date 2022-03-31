@@ -26,7 +26,7 @@ export const HeroContent = styled.div`
 
   & p.myNameIs {
     margin-top: var(--margin-md);
-    color: ${props => props.theme.colors.text_700};
+    color: ${props => props.theme.colors.secondary};
     font-size: var(--fz-md);
     text-align: center;
     max-width: 600px;
@@ -77,18 +77,19 @@ export const HeroContent = styled.div`
 
 export const Button = styled(Link)`
   margin-top: 3rem;
-  color: ${props => props.theme.colors.text_700};
+  color: ${props => props.theme.colors.primary};
   background: transparent;
   font-size: 18px;
   text-align: left;
   border-radius: var(--border-radius);
-  border: solid ${props => props.theme.colors.text_700};
+  border: solid ${props => props.theme.colors.primary};
   padding: 1.25rem 1.75rem;
   transition: var(--transition);
 
   &:hover {
-    background: ${props => props.theme.colors.background_hover};
+    background: ${props => props.theme.colors.secondary};
     color: ${props => props.theme.colors.text_hover};
+    border: solid ${props => props.theme.colors.secondary};
   }
 
   @media screen and (max-width: 480px) {

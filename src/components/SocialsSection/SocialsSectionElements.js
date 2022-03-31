@@ -29,7 +29,7 @@ export const SectionContainer = styled.div`
 
     & p {
       height: 150px;
-      border-left: 2px solid var(--grey-500);
+      border-left: 4px solid ${props => props.theme.colors.background_3};
     }
   }
 
@@ -45,11 +45,12 @@ export const IconCard = styled.a`
   gap: 12px;
   padding: 12px;
   margin-bottom: 20px;
-  background-color: ${props => props.theme.colors.background_3};
+  background-color: ${props => props.theme.colors.background_1};
+  border: 2px solid ${props => props.theme.colors.accent_border};
   /* justify-content: ${props => props.right && "flex-end"}; */
   align-items: center;
   border-radius: 50px;
-  width: 44px;
+  width: 48px;
   transition: var(--transition-card);
   text-decoration: none;
   white-space: nowrap;
@@ -60,6 +61,9 @@ export const IconCard = styled.a`
   :hover {
     /* padding: 12px 20px; */
     width: ${props => props.width + "px"};
+    border: 2px solid ${props => props.theme.colors.secondary};
+    background-color: ${props => props.theme.colors.background_2};
+
   }
 
   :visited, :link {
@@ -72,12 +76,13 @@ export const IconCard = styled.a`
   }
 
   :hover svg {
-    color: ${props => props.theme.colors.accent_900};
-    min-width: 22px;
-    min-height: 22px;
+    /* color: ${props => props.theme.colors.primary}; */
+    /* min-width: 22px;
+    min-height: 22px; */
   }
 
   & span {
+    display: none;
     background: transparent;
     color: ${props => props.theme.colors.text_900};
 
@@ -91,7 +96,7 @@ export const IconCard = styled.a`
     background: transparent;
     min-width: 20px;
     min-height: 20px;
-    color: ${props => props.theme.colors.text_500};
+    color: ${props => props.theme.colors.text_700};
     transition: var(--transition-card);
   }
 `
@@ -141,7 +146,7 @@ export const CreditSectionContainer = styled.div`
     }
 
     a:hover svg {
-      color: ${props => props.theme.colors.accent_900};
+      color: ${props => props.theme.colors.primary};
     }
 
     & span {
@@ -158,7 +163,7 @@ export const CreditSectionContainer = styled.div`
       transition: ${({ theme }) => theme.transitions.easeInOut.normal};
 
       /* :hover {
-        color: ${props => props.theme.colors.accent_900};
+        color: ${props => props.theme.colors.primary};
       } */
     }
   }

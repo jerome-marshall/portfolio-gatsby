@@ -70,7 +70,7 @@ export const TabPanelContainer = styled.div`
     margin-left: -20px;
   } */
   & h3 {
-    color: ${({ theme }) => theme.colors.accent_900};
+    color: ${({ theme }) => theme.colors.primary};
     .title {
       color: ${({ theme }) => theme.colors.text_900};
       font-size: var(--fz-xl);
@@ -83,7 +83,7 @@ export const TabPanelContainer = styled.div`
       text-decoration-skip-ink: auto;
       position: relative;
       /* transition: var(--transition); */
-      color: ${({ theme }) => theme.colors.accent_900};
+      color: ${({ theme }) => theme.colors.primary};
       &:hover {
         cursor: pointer;
         color: ${({ theme }) => theme.colors.accent_hover};
@@ -117,7 +117,7 @@ export const TabPanelContainer = styled.div`
       position: absolute;
       left: 0;
       /* top: 5px; */
-      color: ${({ theme }) => theme.colors.accent_900};
+      color: ${({ theme }) => theme.colors.primary};
       font-size: var(--fz-sm);
       /* line-height: 15px; */
     }
@@ -148,7 +148,7 @@ export const StylizedTab = styled.button`
   text-align: start;
   background-color: transparent;
   border: none;
-  border-left: 3px solid ${({ theme }) => theme.colors.accent_100};
+  border-left: 3px solid ${({ theme }) => theme.colors.accent_border};
   /* border-radius: var(--border-radius); */
   cursor: ${p => (p.disabled ? "default" : "pointer")};
   /* transition: all 0.3s ease-in-out; */
@@ -167,8 +167,8 @@ export const StylizedTab = styled.button`
   ${p =>
     p.active &&
     css`
-      color: ${({ theme }) => theme.colors.accent_900};
-      border-left: 3px solid ${({ theme }) => theme.colors.accent_900};
+      color: ${({ theme }) => theme.colors.primary};
+      border-left: 3px solid ${({ theme }) => theme.colors.primary};
     `}
 
   :hover {
@@ -178,12 +178,12 @@ export const StylizedTab = styled.button`
 
   @media (max-width: 480px) {
     border: none;
-    border-bottom: 3px solid ${({ theme }) => theme.colors.accent_100};
+    border-bottom: 3px solid ${({ theme }) => theme.colors.accent_border};
 
     ${p =>
       p.active &&
       css`
-        border-bottom: 3px solid ${({ theme }) => theme.colors.accent_900};
+        border-bottom: 3px solid ${({ theme }) => theme.colors.primary};
       `}
 
     :hover {

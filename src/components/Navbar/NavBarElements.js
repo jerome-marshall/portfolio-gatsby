@@ -32,7 +32,7 @@ export const NavbarContainer = styled.div`
 `
 
 export const NavLogo = styled(Link)`
-  color: ${props => props.theme.colors.text_900};
+  color: ${props => props.theme.colors.primary};
   justify-self: flex-start;
   cursor: pointer;
   font-size: var(--fz-xxl);
@@ -80,12 +80,14 @@ const navItems = css`
   padding: 0 1.5rem;
   height: 100%;
   cursor: pointer;
-  border-bottom: 0px;
+  /* border-bottom: 0px solid ${props => props.theme.colors.primary}; */
   transition: all 0.3s ease-out;
 
   &:hover {
-    background: ${props => props.theme.colors.background_3};
-    border-bottom: 3px solid ${props => props.theme.colors.text_900};
+    /* background: ${props => props.theme.colors.background_2};
+    border-bottom: 3px solid ${props => props.theme.colors.primary}; */
+    color: ${props => props.theme.colors.primary};
+
   }
 `
 export const NavLinks = styled(Link)`

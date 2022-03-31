@@ -101,7 +101,7 @@ export const AboutSummary = styled.div`
         position: absolute;
         left: 0;
         /* top: 1px; */
-        color: ${({ theme }) => theme.colors.accent_900};
+        color: ${({ theme }) => theme.colors.primary};
         font-size: var(--fz-sm);
         /* line-height: 15px; */
       }
