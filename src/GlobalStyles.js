@@ -18,42 +18,60 @@ const transitions = {
 export const darkTheme = {
   id: "dark",
   colors: {
-    accent_border: "#110b4b",
-    secondary: "#6b93f2",
-    primary: "#1f4adf",
-    accent_hover: "#6b6dff",
-    background_1: "#030716",
-    background_2: "#060e2c",
+    accent_border: "#102e66",
+    secondary: "#7eabff",
+    primary: "#2873ff",
+    accent_hover: "#528fff",
+    background_1: "#040b19",
+    background_2: "#061229",
     background_3: "#0e1d50",
     background_hover: "#eeeeee",
-    text_900: "#eeeeee",
-    text_700: "#cccccc",
-    text_500: "#aaaaaa",
+    text_900: "#eff1ff",
+    text_700: "#9aadd1",
+    text_500: "#6078a3",
     text_300: "#888888",
     text_100: "#666666",
     text_hover: "#111111",
-    text_accent: "#6b93f2",
+    text_accent: "#2873ff",
     shadow: "#eeeeee",
   },
   transitions,
+  header_width: "1500",
+  content_width: "1300",
 }
 
 export const lightTheme = {
   id: "light",
   colors: {
-    primary: "#d89742",
-    secondary: "#dd8109",
-    background_1: "#ebebeb",
-    background_2: "#d6d6d6",
-    background_3: "#b4b4b4",
+    accent_border: "#efd199",
+    secondary: "#815400",
+    primary: "#d78c00",
+    accent_hover: "#ad7000",
+    background_1: "#fbf4e6",
+    background_2: "#f9edd6",
+    background_3: "#f1e2af",
+    background_hover: "#111111",
+    text_900: "#100e00",
+    text_700: "#65522e",
+    text_500: "#9f875c",
+    text_300: "#777777",
+    text_100: "#999999",
+    text_hover: "#eeeeee",
+    text_accent: "#d78c00",
+    shadow: "#111111",
   },
   transitions,
+  header_width: "1500",
+  content_width: "1300",
 }
 
 const GlobalStyles = createGlobalStyle`
 body {
   background: ${({ theme }) => theme.colors.background_1};
   transition: background 1s ease-in-out;
+  max-width: ${({ theme }) => theme.content_width + "px"};
+  position: relative;
+  margin: 0 auto;
 }
 
 * {

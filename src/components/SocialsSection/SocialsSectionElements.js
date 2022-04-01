@@ -1,11 +1,13 @@
 import styled from "styled-components"
 
+export const SectionWrapper = styled.div``
+
 export const SectionContainer = styled.div`
   /* background-color: red; */
   position: fixed;
   bottom: 0;
-  left: ${props => props.left && "40px"};
-  right: ${props => props.right && "40px"};
+  left: ${props => props.left && props.adjustment + "px"};
+  right: ${props => props.right && props.adjustment + "px"};
   display: flex;
   flex-direction: column;
   align-items: ${props => (props.right && "flex-end") || "flex-start"};
@@ -29,7 +31,7 @@ export const SectionContainer = styled.div`
 
     & p {
       height: 150px;
-      border-left: 4px solid ${props => props.theme.colors.background_3};
+      border-left: 2px solid ${props => props.theme.colors.accent_border};
     }
   }
 
@@ -158,7 +160,7 @@ export const CreditSectionContainer = styled.div`
       background: transparent;
       min-width: 20px;
       min-height: 20px;
-      color: ${props => props.theme.colors.text_500};
+      color: ${props => props.theme.colors.text_700};
       z-index: 100;
       transition: ${({ theme }) => theme.transitions.easeInOut.normal};
 

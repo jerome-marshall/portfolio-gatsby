@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import Aos from "aos"
 import "aos/dist/aos.css"
 import {
+  SectionWrapper,
   SectionContainer,
   IconCard,
   CreditSectionWrapper,
@@ -13,6 +14,7 @@ import { FiPhone as IconPhone } from "react-icons/fi"
 import { BsStackOverflow as IconStackoverflow } from "react-icons/bs"
 import { FiMail as IconMail } from "react-icons/fi"
 import { useStaticQuery, graphql } from "gatsby"
+import { ThemeProvider, useTheme } from "styled-components"
 
 const LeftandRightSection = () => {
   useEffect(() => {
@@ -57,8 +59,17 @@ const LeftandRightSection = () => {
   const socialsData = data.glstrapi.globalDatum.socials
   console.log(
     "🚀 ~ file: SocialsSection.js ~ line 43 ~ LeftandRightSection ~ socialsData",
-    iconCardWidths["github"]
+   window.innerWidth
   )
+
+  const theme = useTheme()
+  console.log("🚀 ~ file: SocialsSection.js ~ line 66 ~ LeftandRightSection ~ theme", theme)
+
+  let adjustment = (window.innerWidth - theme.header_width + 10) / 2
+  if (adjustment < 0) {
+    adjustment = 10
+  }
+  console.log("🚀 ~ file: SocialsSection.js ~ line 69 ~ LeftandRightSection ~ adjustment", adjustment)
 
   const CreditSectionIcons = socialsData.map((social, index) => {
     const Icon =
@@ -89,8 +100,8 @@ const LeftandRightSection = () => {
   })
 
   return (
-    <>
-      <SectionContainer left data-aos="fade-right">
+    <SectionWrapper>
+      <SectionContainer left data-aos="fade-right" adjustment={adjustment}>
         <div className="cards">
           <IconCard left width="103" href={socialsData[0].url} target="_blank">
             <IconGitHub />
@@ -112,7 +123,7 @@ const LeftandRightSection = () => {
         </div>
       </SectionContainer>
 
-      <SectionContainer right data-aos="fade-left">
+      <SectionContainer right data-aos="fade-left" adjustment={adjustment}>
         <div className="cards">
           <IconCard right width="253" href={socialsData[3].url} target="_blank">
             <IconMail />
@@ -137,7 +148,7 @@ const LeftandRightSection = () => {
           <div className="icons">{CreditSectionIcons}</div>
         </CreditSectionContainer>
       </CreditSectionWrapper>
-    </>
+    </SectionWrapper>
   )
 }
 

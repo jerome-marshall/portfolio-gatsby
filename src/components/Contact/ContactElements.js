@@ -24,7 +24,7 @@ export const ContactContent = styled.div`
 
   & p.sub-title {
     margin-top: var(--margin-md);
-    color: ${({ theme }) => theme.colors.text_300};
+    color: ${({ theme }) => theme.colors.secondary};
     font-size: var(--fz-md);
     text-align: center;
     width: 100%;
@@ -46,7 +46,7 @@ export const ContactContent = styled.div`
 
   & p.description {
     margin-top: var(--margin-md);
-    color: ${({ theme }) => theme.colors.text_500};
+    color: ${({ theme }) => theme.colors.text_700};
     font-size: var(--fz-lg);
     text-align: center;
     line-height: var(--line-height-sm);
@@ -76,8 +76,9 @@ export const StyledA = styled.a`
   transition-property: background color;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.background_hover};
-    color: ${({ theme }) => theme.colors.text_hover};
+    background: ${props => props.theme.colors.secondary};
+    color: ${props => props.theme.colors.text_hover};
+    border: solid ${props => props.theme.colors.secondary};
   }
 
   &:visited {

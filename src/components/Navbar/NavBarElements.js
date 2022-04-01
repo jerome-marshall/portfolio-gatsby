@@ -10,6 +10,8 @@ export const Nav = styled.nav`
   left: 0;
   z-index: 10;
   transition: ${({ theme }) => theme.transitions.easeInOut.theme} !important;
+  max-width: ${({ theme }) => theme.header_width + "px"};
+  margin: 0 auto;
   /* transition-property: background; */
 
   @media screen and (max-width: 960px) {
@@ -110,6 +112,12 @@ export const NavToggle = styled.nav`
   @media screen and (max-width: 768px) {
     margin-left: auto;
     margin-right: 1.5rem;
+  }
+
+  > div {
+    > div {
+      box-shadow: 0 0 35px 1px ${({ theme }) => theme.colors.primary};
+    }
   }
 `
 

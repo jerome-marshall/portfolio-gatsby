@@ -65,7 +65,7 @@ export const AboutSummary = styled.div`
   }
 
   & p {
-    color: ${({ theme }) => theme.colors.text_500};
+    color: ${({ theme }) => theme.colors.text_700};
     font-size: var(--fz-md);
     line-height: var(--line-height-sm);
   }

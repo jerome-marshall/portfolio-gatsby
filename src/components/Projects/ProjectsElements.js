@@ -46,12 +46,12 @@ export const ProjectsContent = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(300px, auto);
 
-    @media (max-width: 768px) {
+    @media (max-width: 991px) {
       grid-template-columns: repeat(2, 1fr);
       /* grid-auto-rows: minmax(300px, auto); */
     }
 
-    @media (max-width: 510px) {
+    @media (max-width: 767px) {
       grid-template-columns: repeat(1, 1fr);
       /* grid-auto-rows: minmax(300px, auto); */
     }
@@ -68,7 +68,10 @@ export const ProjectLI = styled.li`
   grid-template-rows: 2fr 8fr;
   width: 100%;
   padding: 30px 20px;
-  transition: ${({theme}) => theme.themeChanging ? theme.transitions.easeInOut.theme : theme.transitions.linear.fast};
+  transition: ${({ theme }) =>
+    theme.themeChanging
+      ? theme.transitions.easeInOut.theme
+      : theme.transitions.linear.fast};
   /* transition-property: var(--transition-theme-property); */
 
   
@@ -106,6 +109,7 @@ export const ProjectLI = styled.li`
       width: 22px;
       height: 22px;
       transition: var(--transition);
+      color: ${({ theme }) => theme.colors.text_900};
 
       :hover {
         color: ${({ theme }) => theme.colors.primary};
@@ -128,7 +132,7 @@ export const ProjectLI = styled.li`
     & div.description {
       & > p {
         /* background-color: var(--background-dark-highlight); */
-        color: ${({ theme }) => theme.colors.text_300};
+        color: ${({ theme }) => theme.colors.text_500};
         font-size: var(--fz-md);
         margin-bottom: 20px;
       }
@@ -149,7 +153,7 @@ export const ProjectLI = styled.li`
     /* width: 25%;
     float: right; */
 
-    color: ${({ theme }) => theme.colors.text_500};
+    color: ${({ theme }) => theme.colors.text_700};
     font-size: var(--fz-xs);
     padding: 7px;
     /* transition: var(--transition); */

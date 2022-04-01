@@ -84,6 +84,7 @@ export const TabPanelContainer = styled.div`
       position: relative;
       /* transition: var(--transition); */
       color: ${({ theme }) => theme.colors.primary};
+      transition: color 0.3s ease-in-out;
       &:hover {
         cursor: pointer;
         color: ${({ theme }) => theme.colors.accent_hover};
@@ -140,7 +141,7 @@ export const TabHeaderContainer = styled.div`
 `
 
 export const StylizedTab = styled.button`
-  color: ${({ theme }) => theme.colors.text_300};
+  color: ${({ theme }) => theme.colors.text_500};
   /* width: 8.5rem; */  
   white-space: nowrap;
   padding: 12px 15px;
@@ -151,7 +152,7 @@ export const StylizedTab = styled.button`
   border-left: 3px solid ${({ theme }) => theme.colors.accent_border};
   /* border-radius: var(--border-radius); */
   cursor: ${p => (p.disabled ? "default" : "pointer")};
-  /* transition: all 0.3s ease-in-out; */
+  transition: all 0.3s ease-in-out;
 
   /* ${p =>
     p.active
@@ -167,8 +168,8 @@ export const StylizedTab = styled.button`
   ${p =>
     p.active &&
     css`
-      color: ${({ theme }) => theme.colors.primary};
-      border-left: 3px solid ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.secondary};
+      border-left: 3px solid ${({ theme }) => theme.colors.secondary};
     `}
 
   :hover {
