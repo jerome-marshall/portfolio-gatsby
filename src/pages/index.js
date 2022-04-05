@@ -6,6 +6,8 @@ import Experience from "../components/Experience/Experience"
 import Projects from "../components/Projects/Projects"
 import Contact from "../components/Contact/Contact"
 import { useStaticQuery, graphql } from "gatsby"
+import { Helmet } from "react-helmet"
+
 
 export default function Home(props) {
 
@@ -36,11 +38,15 @@ export default function Home(props) {
   })
 
   return (
-    <Layout>
-      <div className="scroll-container">
-        {pages}
-      </div>
-    </Layout>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Jerome Marshall</title>
+      </Helmet>
+      <Layout>
+        <div className="scroll-container">{pages}</div>
+      </Layout>
+    </>
   )
 }
 

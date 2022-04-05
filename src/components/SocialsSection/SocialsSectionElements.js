@@ -6,8 +6,8 @@ export const SectionContainer = styled.div`
   /* background-color: red; */
   position: fixed;
   bottom: 0;
-  left: ${props => props.left && props.adjustment + "px"};
-  right: ${props => props.right && props.adjustment + "px"};
+  left: ${props => props.left && props.theme.adjustment + "px"};
+  right: ${props => props.right && props.theme.adjustment + "px"};
   display: flex;
   flex-direction: column;
   align-items: ${props => (props.right && "flex-end") || "flex-start"};

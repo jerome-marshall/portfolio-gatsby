@@ -56,20 +56,24 @@ const LeftandRightSection = () => {
     email: "253",
   }
 
+  let adjustment = 10
+
   const socialsData = data.glstrapi.globalDatum.socials
-  console.log(
-    "🚀 ~ file: SocialsSection.js ~ line 43 ~ LeftandRightSection ~ socialsData",
-   window.innerWidth
-  )
 
   const theme = useTheme()
-  console.log("🚀 ~ file: SocialsSection.js ~ line 66 ~ LeftandRightSection ~ theme", theme)
+  console.log("🚀 ~ file: SocialsSection.js ~ line 64 ~ LeftandRightSection ~ theme", theme)
 
-  let adjustment = (window.innerWidth - theme.header_width + 10) / 2
-  if (adjustment < 0) {
-    adjustment = 10
+  if (typeof window !== "undefined") {
+    adjustment = (window.innerWidth - theme.header_width + 10) / 2
+    if (adjustment < 0) {
+      adjustment = 10
+    }
   }
-  console.log("🚀 ~ file: SocialsSection.js ~ line 69 ~ LeftandRightSection ~ adjustment", adjustment)
+
+  // let adjustment = (window.innerWidth - theme.header_width + 10) / 2
+  // if (adjustment < 0) {
+  //   adjustment = 10
+  // }
 
   const CreditSectionIcons = socialsData.map((social, index) => {
     const Icon =

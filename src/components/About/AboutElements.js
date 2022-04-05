@@ -163,6 +163,7 @@ export const StyledPic = styled.div`
         }
       }
       @media (max-width: 480px) {
+        display: none;
         max-width: 240px;
         margin: 12px;
 

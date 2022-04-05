@@ -21,6 +21,7 @@ module.exports = {
         path: `${__dirname}/src/data/`,
       },
     },
+    `gatsby-plugin-react-helmet`,
 
     // {
     //   resolve: 'gatsby-source-rest-api',
