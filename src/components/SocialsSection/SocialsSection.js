@@ -29,6 +29,12 @@ const LeftandRightSection = () => {
     }
   })
 
+  const [windowWidth] = useWindowSize()
+  let adjustment = (windowWidth - 1500 + 10) / 2
+  if (adjustment < 20) {
+    adjustment = 20
+  }
+
   const data = useStaticQuery(graphql`
     query GetSocials {
       glstrapi {
@@ -43,6 +49,8 @@ const LeftandRightSection = () => {
     }
   `)
 
+  const socialsData = data.glstrapi.globalDatum.socials
+
   const iconsLocation = {
     left: ["github", "linkedin", "stackoverflow"],
     right: ["phone", "email"],
@@ -56,40 +64,31 @@ const LeftandRightSection = () => {
     email: "253",
   }
 
-  const socialsData = data.glstrapi.globalDatum.socials
-
-  const [windowWidth] = useWindowSize()
-  let adjustment = (windowWidth - 1500 + 10) / 2
-  if (adjustment < 0) {
-    adjustment = 20
-  }
-
-  console.log(
-    "🚀 ~ file: SocialsSection.js ~ line 82 ~ LeftandRightSection ~ adjustment",
-    adjustment
-  )
-
-  const CreditSectionIcons = socialsData.map((social, index) => {
+  const getIcon = iconName => {
     const Icon =
-      social.name === "github"
+      iconName === "github"
         ? IconGitHub
-        : social.name === "linkedin"
+        : iconName === "linkedin"
         ? IconLinkedIn
-        : social.name === "stackoverflow"
+        : iconName === "stackoverflow"
         ? IconStackoverflow
-        : social.name === "phone"
+        : iconName === "phone"
         ? IconPhone
-        : social.name === "email"
+        : iconName === "email"
         ? IconMail
         : null
+
+    return Icon
+  }
+
+  const CreditSectionIcons = socialsData.map((social, index) => {
+    const Icon = getIcon(social.name)
 
     return (
       <IconCard
         key={social.displayName + index}
         href={social.url}
-        target={
-          social.name !== "phone" && social.name !== "phone" ? "_blank" : ""
-        }
+        target={social.name !== "phone" && "_blank"}
       >
         <Icon />
         <span>{social.displayName}</span>
@@ -101,20 +100,24 @@ const LeftandRightSection = () => {
     <SectionWrapper>
       <SectionContainer left data-aos="fade-right" adjustment={adjustment}>
         <div className="cards">
-          <IconCard left width="103" href={socialsData[0].url} target="_blank">
-            <IconGitHub />
-            <span>{socialsData[0].displayName}</span>
-          </IconCard>
+          {socialsData.map(social => {
+            if (iconsLocation.right.includes(social.name)) return null
 
-          <IconCard left width="115" href={socialsData[1].url} target="_blank">
-            <IconLinkedIn />
-            <span>{socialsData[1].displayName}</span>
-          </IconCard>
+            const Icon = getIcon(social.name)
 
-          <IconCard left width="157" href={socialsData[2].url} target="_blank">
-            <IconStackoverflow />
-            <span>{socialsData[2].displayName}</span>
-          </IconCard>
+            return (
+              <IconCard
+                key={social.name}
+                href={social.url}
+                width={iconCardWidths[social.name]}
+                left
+                target={social.name !== "phone" && "_blank"}
+              >
+                <Icon />
+                <span>{social.displayName}</span>
+              </IconCard>
+            )
+          })}
         </div>
         <div className="bar">
           <p></p>
@@ -123,15 +126,24 @@ const LeftandRightSection = () => {
 
       <SectionContainer right data-aos="fade-left" adjustment={adjustment}>
         <div className="cards">
-          <IconCard right width="253" href={socialsData[3].url} target="_blank">
-            <IconMail />
-            <span>{socialsData[3].displayName}</span>
-          </IconCard>
+          {socialsData.map(social => {
+            if (iconsLocation.left.includes(social.name)) return null
 
-          <IconCard right width="163" href={socialsData[4].url}>
-            <IconPhone />
-            <span>{socialsData[4].displayName}</span>
-          </IconCard>
+            const Icon = getIcon(social.name)
+
+            return (
+              <IconCard
+                key={social.name}
+                href={social.url}
+                width={iconCardWidths[social.name]}
+                right
+                target={social.name !== "phone" && "_blank"}
+              >
+                <Icon />
+                <span>{social.displayName}</span>
+              </IconCard>
+            )
+          })}
         </div>
         <div className="bar">
           <p></p>
