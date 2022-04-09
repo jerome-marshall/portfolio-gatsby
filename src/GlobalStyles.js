@@ -15,15 +15,6 @@ const transitions = {
   },
 }
 
-let adjustment = 10
-if (typeof window !== "undefined") {
-  adjustment = (window.innerWidth - 1500 + 10) / 2
-  if (adjustment < 0) {
-    adjustment = 10
-  }
-}
-console.log("🚀 ~ file: GlobalStyles.js ~ line 19 ~ adjustment", adjustment)
-
 export const darkTheme = {
   id: "dark",
   colors: {
@@ -47,7 +38,6 @@ export const darkTheme = {
   transitions,
   header_width: "1500",
   content_width: "1300",
-  adjustment,
 }
 
 export const lightTheme = {

@@ -14,7 +14,7 @@ import { FiPhone as IconPhone } from "react-icons/fi"
 import { BsStackOverflow as IconStackoverflow } from "react-icons/bs"
 import { FiMail as IconMail } from "react-icons/fi"
 import { useStaticQuery, graphql } from "gatsby"
-import { ThemeProvider, useTheme } from "styled-components"
+import { useWindowSize } from "../../hooks/window-size"
 
 const LeftandRightSection = () => {
   useEffect(() => {
@@ -56,24 +56,18 @@ const LeftandRightSection = () => {
     email: "253",
   }
 
-  let adjustment = 10
-
   const socialsData = data.glstrapi.globalDatum.socials
 
-  const theme = useTheme()
-  console.log("🚀 ~ file: SocialsSection.js ~ line 64 ~ LeftandRightSection ~ theme", theme)
-
-  if (typeof window !== "undefined") {
-    adjustment = (window.innerWidth - theme.header_width + 10) / 2
-    if (adjustment < 0) {
-      adjustment = 10
-    }
+  const [windowWidth] = useWindowSize()
+  let adjustment = (windowWidth - 1500 + 10) / 2
+  if (adjustment < 0) {
+    adjustment = 20
   }
 
-  // let adjustment = (window.innerWidth - theme.header_width + 10) / 2
-  // if (adjustment < 0) {
-  //   adjustment = 10
-  // }
+  console.log(
+    "🚀 ~ file: SocialsSection.js ~ line 82 ~ LeftandRightSection ~ adjustment",
+    adjustment
+  )
 
   const CreditSectionIcons = socialsData.map((social, index) => {
     const Icon =
