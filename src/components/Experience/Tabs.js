@@ -6,10 +6,10 @@ import {
   TabsHolder,
 } from "./ExperienceElements";
 
-export const Tab = ({ lable, active, onClick }) => {
+export const Tab = ({ label, active, onClick }) => {
   return (
     <StylizedTab role="tab" active={active} onClick={onClick}>
-      {lable}
+      {label}
     </StylizedTab>
   );
 };

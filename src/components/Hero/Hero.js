@@ -3,24 +3,18 @@ import FadeHOC from "../FadeHOC/FadeHOC"
 import { HeroContainer, HeroContent, Button } from "./HeroElements"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Hero = () => {
-  const data = useStaticQuery(graphql`
-    query GetHeroPage {
-      strapiHeroPage {
-        name
-        shortDescription
-        description
-      }
-    }
-  `)
 
-  const { name, description, shortDescription } = data.strapiHeroPage
+const Hero = ({data}) => {
+
+
+  
+  const {pageTitle, name, description, shortDescription } = data
 
   return (
     <HeroContainer id="hero">
-      <FadeHOC>
+      <FadeHOC animation="fade-up">
         <HeroContent>
-          <p className="myNameIs">Hi, my name is</p>
+          <p className="myNameIs">{pageTitle}</p>
           <h1 className="name">{name}.</h1>
           <h2>{shortDescription}</h2>
           <p className="summary">{description}</p>

@@ -10,48 +10,30 @@ import { FiFolder as IconFolder } from "react-icons/fi"
 import { useStaticQuery, graphql } from "gatsby"
 import FadeHOC from "../FadeHOC/FadeHOC"
 
-const Projects = () => {
-  const data = useStaticQuery(graphql`
-    query GetProjects {
-      allStrapiProjects(sort: { fields: date, order: DESC }) {
-        nodes {
-          techStack {
-            name
-          }
-          date
-          description
-          external
-          github
-          name
-          personal
-          projectFor
-          showInProjects
-        }
-      }
-    }
-  `)
 
-  const projectData = data.allStrapiProjects.nodes
+const Projects = (props) => {
+
+const { pageTitle, projects } = props.data
 
   return (
     <StyledProjectsSection id="projects">
-      <FadeHOC>
+      <FadeHOC animation="fade-up">
         <ProjectsContent>
-          <h2>Some things I've built</h2>
+          <h2>{pageTitle}</h2>
           <ul className="project-grid">
-            {projectData &&
-              projectData.map((data, i) => {
-                const { name, techStack, github, external, description } = data
+            {projects &&
+              projects.map((data, i) => {
+                const { name, techStack, githubURL, externalURL, description } = data
                 return (
                   <ProjectLI key={name + i}>
                     <div className="leftIcon">
                       <IconFolder />
                     </div>
                     <div className="rightIcons">
-                      <a href={github} target="_blank" rel="noreferrer">
+                      <a href={githubURL} target="_blank" rel="noreferrer">
                         <IconGitHub className="rightIcon" />
                       </a>{" "}
-                      <a href={external} target="_blank" rel="noreferrer">
+                      <a href={externalURL} target="_blank" rel="noreferrer">
                         <IconExternal className="rightIcon" />
                       </a>
                     </div>

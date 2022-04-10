@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, {css} from "styled-components"
 import { landScapeMediaQueries } from "../../GlobalStyles"
 
 export const StyledProjectsSection = styled.section`
@@ -7,11 +7,11 @@ export const StyledProjectsSection = styled.section`
   max-width: 100%;
   /* height: 100vh; */
   padding-top: 70px;
-  background: var(--background-dark);
+  /* background: ${({ theme }) => theme.colors.background_1}; */
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  color: var(--white);
+  /* color: ${({ theme }) => theme.colors.text_900}; */
 
   @media (max-width: 768px) {
     display: block;
@@ -32,7 +32,7 @@ export const ProjectsContent = styled.div`
   /* overflow: hidden; */
 
   & > h2 {
-    color: var(--white);
+    color: ${({ theme }) => theme.colors.text_900};
     margin: var(--margin-md) 0;
     font-size: var(--fz-heading-md);
   }
@@ -46,12 +46,12 @@ export const ProjectsContent = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(300px, auto);
 
-    @media (max-width: 768px) {
+    @media (max-width: 991px) {
       grid-template-columns: repeat(2, 1fr);
       /* grid-auto-rows: minmax(300px, auto); */
     }
 
-    @media (max-width: 510px) {
+    @media (max-width: 767px) {
       grid-template-columns: repeat(1, 1fr);
       /* grid-auto-rows: minmax(300px, auto); */
     }
@@ -60,7 +60,7 @@ export const ProjectsContent = styled.div`
 
 export const ProjectLI = styled.li`
   /* border: 3px solid white; */
-  background-color: var(--background-dark-highlight);
+  background-color: ${({ theme }) => theme.colors.background_2};
   position: relative;
   list-style: none;
   display: grid;
@@ -68,53 +68,62 @@ export const ProjectLI = styled.li`
   grid-template-rows: 2fr 8fr;
   width: 100%;
   padding: 30px 20px;
-  transition: var(--transition);
+  transition: ${({ theme }) =>
+    theme.themeChanging
+      ? theme.transitions.easeInOut.theme
+      : theme.transitions.linear.fast};
+  /* transition-property: var(--transition-theme-property); */
+
+  
 
   & .leftIcon {
     /* grid-area: "leftIcon"; */
     /* background-color: chocolate; */
-    background-color: var(--background-dark-highlight);
+    /* background-color: var(--background-dark-highlight); */
+    color: ${({ theme }) => theme.colors.text_700};
     justify-self: start;
     align-self: center;
     /* padding: 10px; */
 
     & svg {
-      background-color: var(--background-dark-highlight);
+      /* background-color: var(--background-dark-highlight); */
       width: 35px;
       height: 35px;
     }
   }
 
   & .rightIcons {
-    background-color: var(--background-dark-highlight);
+    /* background-color: var(--background-dark-highlight); */
     justify-self: end;
     align-self: center;
     /* padding-left: 10px; */
 
     & a {
-      background-color: var(--background-dark-highlight);
-      color: var(--white);
+      /* background-color: var(--background-dark-highlight); */
+      color: ${({ theme }) => theme.colors.text_900};
     }
 
     & svg {
-      background-color: var(--background-dark-highlight);
+      /* background-color: var(--background-dark-highlight); */
       margin-right: 10px;
       width: 22px;
       height: 22px;
       transition: var(--transition);
+      color: ${({ theme }) => theme.colors.text_900};
 
       :hover {
-        color: #0088ff;
+        color: ${({ theme }) => theme.colors.primary};
       }
     }
   }
 
   & .content {
-    background-color: var(--background-dark-highlight);
+    /* background-color: var(--background-dark-highlight); */
     grid-column: 1/3;
 
     & h3.title {
-      background-color: var(--background-dark-highlight);
+      /* background-color: var(--background-dark-highlight); */
+      color: ${({ theme }) => theme.colors.text_900};
       margin: 20px 0 10px 0;
       font-size: var(--fz-xl);
       transition: var(--transition);
@@ -122,8 +131,8 @@ export const ProjectLI = styled.li`
 
     & div.description {
       & > p {
-        background-color: var(--background-dark-highlight);
-        color: var(--grey-300);
+        /* background-color: var(--background-dark-highlight); */
+        color: ${({ theme }) => theme.colors.text_500};
         font-size: var(--fz-md);
         margin-bottom: 20px;
       }
@@ -132,7 +141,7 @@ export const ProjectLI = styled.li`
 
   & ul {
     /* background-color: cadetblue; */
-    background-color: var(--background-dark-highlight);
+    /* background-color: var(--background-dark-highlight); */
     grid-column: 1/3;
     justify-self: end;
     align-self: end;
@@ -140,14 +149,14 @@ export const ProjectLI = styled.li`
   }
 
   & li {
-    background-color: var(--background-dark-highlight);
+    /* background-color: var(--background-dark-highlight); */
     /* width: 25%;
     float: right; */
 
-    color: var(--grey-500);
+    color: ${({ theme }) => theme.colors.text_700};
     font-size: var(--fz-xs);
     padding: 7px;
-    transition: var(--transition);
+    /* transition: var(--transition); */
 
     display: inline;
     justify-self: end;
@@ -180,10 +189,24 @@ export const ProjectLI = styled.li`
   }
 
   :hover {
+    /* transition: all 0.1s linear; */
+
     transform: translateY(-7px);
     & h3.title,
     li {
-      color: #0088ff;
+      color: ${({ theme }) => theme.colors.primary};
     }
+
+    /* :after{
+      transition: all 0.3s linear;
+
+    } */
+
+    /* & .rightIcons {
+      & a {
+        background-color: var(--background-dark-highlight);
+        color: ${({ theme }) => theme.colors.primary};
+      }
+    } */
   }
-`
+}`

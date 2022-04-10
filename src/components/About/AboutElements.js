@@ -4,7 +4,6 @@ import { landScapeMediaQueries } from "../../GlobalStyles"
 export const StyledAboutSection = styled.section`
   max-width: 100%;
   height: 100vh;
-  background: var(--background-dark);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +25,7 @@ export const AboutContent = styled.div`
   max-width: calc(var(--max-width) - 50px);
 
   & > h2 {
-    color: var(--white);
+    color: ${({ theme }) => theme.colors.text_900};
     padding: var(--margin-md) 0;
     font-size: var(--fz-heading-sm);
   }
@@ -66,7 +65,7 @@ export const AboutSummary = styled.div`
   }
 
   & p {
-    color: var(--grey-300);
+    color: ${({ theme }) => theme.colors.text_700};
     font-size: var(--fz-md);
     line-height: var(--line-height-sm);
   }
@@ -86,11 +85,13 @@ export const AboutSummary = styled.div`
     }
 
     li {
-      color: var(--white);
+      color: ${({ theme }) => theme.colors.text_900};
       position: relative;
       margin-bottom: 10px;
       padding-left: 20px;
       text-indent: 0px;
+      /* transition to cancel */
+      transition: all 0.1s ease-in-out;
 
       /* font-family: var(--font-mono); */
       font-size: var(--fz-sm);
@@ -100,7 +101,7 @@ export const AboutSummary = styled.div`
         position: absolute;
         left: 0;
         /* top: 1px; */
-        color: var(--green);
+        color: ${({ theme }) => theme.colors.primary};
         font-size: var(--fz-sm);
         /* line-height: 15px; */
       }
@@ -142,10 +143,11 @@ export const StyledPic = styled.div`
       max-width: 280px;
       max-height: 100%;
       border-radius: var(--border-radius);
-      opacity: 0.4;
+      opacity: 0.6;
       object-fit: contain;
-      box-shadow: 0 10px 30px -15px #fff;
-      transition: all 500ms ease-in-out;
+      box-shadow: 0 10px 30px -15px ${({ theme }) => theme.colors.shadow};
+      transition: all 300ms ease-in-out;
+      transition-property: max-width opacity;
 
       :hover {
         max-width: 300px;
@@ -161,6 +163,7 @@ export const StyledPic = styled.div`
         }
       }
       @media (max-width: 480px) {
+        display: none;
         max-width: 240px;
         margin: 12px;
 

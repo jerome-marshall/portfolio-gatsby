@@ -7,7 +7,7 @@ export const SidebarContainer = styled.aside`
   z-index: 999;
   width: 100vw;
   height: 100vh;
-  background: var(--background-dark);
+  background: ${props => props.theme.colors.background_2};
   display: grid;
   align-items: center;
   top: 0;
@@ -18,7 +18,7 @@ export const SidebarContainer = styled.aside`
 `
 
 export const CloseIcon = styled(FaTimes)`
-  color: var(--white);
+  color: ${({ theme }) => theme.colors.text_900};
 `
 export const Icon = styled.div`
   position: absolute;
@@ -30,7 +30,7 @@ export const Icon = styled.div`
   outline: none;
 `
 export const SidebarWrapper = styled.div`
-  color: var(--white);
+  color: ${({ theme }) => theme.colors.text_900};
 `
 export const SidebarMenu = styled.ul`
   display: grid;
@@ -51,11 +51,11 @@ export const SidebarLink = styled(LinkS)`
   list-style: none;
   transition: 0.2s ease-in-out;
   text-decoration: none;
-  color: var(--white);
+  color: ${({ theme }) => theme.colors.text_900};
   cursor: pointer;
 
   &:hover {
-    color: var(--white);
+    color: ${({ theme }) => theme.colors.text_900};
     transition: 0.2s ease-in-out;
   }
 `
@@ -65,10 +65,10 @@ export const SideBtnWrap = styled.div`
 `
 export const SidebarRoute = styled.a`
   border-radius: 50px;
-  background: var(--white);
+  background: ${({ theme }) => theme.colors.secondary};
   white-space: nowrap;
   padding: 16px 64px;
-  color: #010606;
+  color: ${({ theme }) => theme.colors.text_hover};
   font-size: 16px;
   outline: none;
   border: none;
@@ -76,9 +76,9 @@ export const SidebarRoute = styled.a`
   transition: all 0.2s ease-in-out;
   text-decoration: none;
 
-  &:hover {
+  /* &:hover {
     transition: all 0.2s ease-in-out;
     background: #fff;
     color: #010606;
-  }
+  } */
 `

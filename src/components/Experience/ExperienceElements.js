@@ -4,7 +4,6 @@ import { landScapeMediaQueries } from "../../GlobalStyles"
 export const StyledExperienceSection = styled.section`
   max-width: 100%;
   height: 100vh;
-  background: var(--background-dark);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,11 +29,11 @@ export const ExperienceContent = styled.div`
   /* border: 3px solid white; */
   /* justify-content: flex-start; */
   align-items: flex-start;
-  color: var(--white);
+  color: ${({ theme }) => theme.colors.text_900};
   padding: var(--margin-md);
 
   & > h2 {
-    color: var(--white);
+    color: ${({ theme }) => theme.colors.text_900};
     margin: var(--margin-md) 0;
     font-size: var(--fz-heading-sm);
   }
@@ -71,9 +70,9 @@ export const TabPanelContainer = styled.div`
     margin-left: -20px;
   } */
   & h3 {
-    color: skyblue;
+    color: ${({ theme }) => theme.colors.primary};
     .title {
-      color: var(--white);
+      color: ${({ theme }) => theme.colors.text_900};
       font-size: var(--fz-xl);
       margin-bottom: 8px;
     }
@@ -83,11 +82,12 @@ export const TabPanelContainer = styled.div`
       text-decoration: none;
       text-decoration-skip-ink: auto;
       position: relative;
-      transition: var(--transition);
-      color: skyblue;
+      /* transition: var(--transition); */
+      color: ${({ theme }) => theme.colors.primary};
+      transition: color 0.3s ease-in-out;
       &:hover {
         cursor: pointer;
-        color: #0088ff;
+        color: ${({ theme }) => theme.colors.accent_hover};
       }
     }
   }
@@ -96,7 +96,7 @@ export const TabPanelContainer = styled.div`
     margin-bottom: 25px;
     margin-top: 5px;
     font-size: var(--fz-sm);
-    color: var(--grey-300);
+    color: ${({ theme }) => theme.colors.text_500};
   }
 
   & ul {
@@ -105,7 +105,7 @@ export const TabPanelContainer = styled.div`
   }
 
   & li {
-    color: var(--grey-300);
+    color: ${({ theme }) => theme.colors.text_700};
     font-size: var(--fz-md);
     margin-bottom: 8px;
     position: relative;
@@ -118,7 +118,7 @@ export const TabPanelContainer = styled.div`
       position: absolute;
       left: 0;
       /* top: 5px; */
-      color: var(--white);
+      color: ${({ theme }) => theme.colors.primary};
       font-size: var(--fz-sm);
       /* line-height: 15px; */
     }
@@ -141,15 +141,15 @@ export const TabHeaderContainer = styled.div`
 `
 
 export const StylizedTab = styled.button`
-  color: var(--grey-700);
-  /* width: 8.5rem; */
+  color: ${({ theme }) => theme.colors.text_500};
+  /* width: 8.5rem; */  
   white-space: nowrap;
   padding: 12px 15px;
   font-size: var(--fz-sm);
   text-align: start;
   background-color: transparent;
   border: none;
-  border-left: 3px solid var(--grey-900);
+  border-left: 3px solid ${({ theme }) => theme.colors.accent_border};
   /* border-radius: var(--border-radius); */
   cursor: ${p => (p.disabled ? "default" : "pointer")};
   transition: all 0.3s ease-in-out;
@@ -168,23 +168,23 @@ export const StylizedTab = styled.button`
   ${p =>
     p.active &&
     css`
-      color: var(--white);
-      border-left: 3px solid white;
+      color: ${({ theme }) => theme.colors.secondary};
+      border-left: 3px solid ${({ theme }) => theme.colors.secondary};
     `}
 
   :hover {
-    background-color: #333;
-    color: var(--white);
+    background-color: ${({ theme }) => theme.colors.background_3};
+    color: ${({ theme }) => theme.colors.accent_hover};
   }
 
   @media (max-width: 480px) {
     border: none;
-    border-bottom: 3px solid var(--grey-900);
+    border-bottom: 3px solid ${({ theme }) => theme.colors.accent_border};
 
     ${p =>
       p.active &&
       css`
-        border-bottom: 3px solid white;
+        border-bottom: 3px solid ${({ theme }) => theme.colors.primary};
       `}
 
     :hover {
@@ -194,10 +194,9 @@ export const StylizedTab = styled.button`
 `
 
 export const StyledTabPanel = styled.div`
-  background-color: tomato;
   position: relative;
   display: ${p => (p.active ? "flex" : "none")};
-  background: var(--background-dark);
+  /* background: var(--background-dark); */
   flex-direction: column;
   justify-content: flex-start;
 

@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import Aos from "aos"
 import "aos/dist/aos.css"
 
-const FadeHOC = ({ children }) => {
+const FadeHOC = ({ children, animation }) => {
   useEffect(() => {
     Aos.init({
       duration: 1000,
@@ -16,7 +16,7 @@ const FadeHOC = ({ children }) => {
   })
 
   return (
-    <div data-aos="fade-up" data-aos-once="true">
+    <div data-aos={animation} data-aos-once="true">
       {children}
     </div>
   )
